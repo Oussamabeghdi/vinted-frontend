@@ -1,38 +1,75 @@
-.App {
-  text-align: center;
-}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: "Roboto";
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  /* border: 1px solid sienna; */
+  margin: 0 80px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.image-offer {
+  height: 360px;
+  width: 235px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.offer-container {
+  /* border: 1px solid sienna; */
+  margin-bottom: 10px;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  margin-left: 10px;
+  color: #a3b3c3;
+}
+.offer-infos p {
+  color: #a3b3c3;
+}
+article p {
+  color: #000000;
+}
+header {
+  height: 80px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  /* justify-content: space-around; */
+}
+/* .header-container input {
+  width: 400px;
+  border-radius: 2px;
+  width: 400px;
+  justify-content: "space-around";
+} */
+.modal-root {
+  color: red;
+  /* Pour que la modal prenne tout l'écran : */
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal {
+  background-color: white;
+  width: 700px;
+  height: 400px;
 }
 
-.App-link {
-  color: #61dafb;
+.App {
+  position: relative;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.modal-root {
+  color: red;
+  /* Pour que la modal prenne tout l'écran : */
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  /* Pour placer la modal tout en haut à gauche une fois en position relative */
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
