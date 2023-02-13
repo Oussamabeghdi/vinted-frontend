@@ -70,7 +70,7 @@ const Signup = ({ handleToken }) => {
       }}
     >
       <form
-        style={{ display: "flex", flexDirection: "column" }}
+        style={{ display: "flex", flexDirection: "column", gap: 30 }}
         onSubmit={handleSignup}
       >
         {/* quand le contenu change je veux recuperer qui a eu lieu et la nouvelle valeur de mon state je veux que ça soit event .target.value */}

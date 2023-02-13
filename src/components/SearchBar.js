@@ -12,28 +12,20 @@ const SearchBar = ({ search, setSearch }) => {
   };
 
   return (
-    <div>
+    <div className="header-content">
       <form onSubmit={handleSearch}>
-        {/* <img
-      style={{ height: 100, width: 100 }}
-      src="../public/img/logovinted.png"
-      alt=""
-    ></img> */}
+        <img
+          style={{ height: 100, width: 100 }}
+          src="https://www.vinted.fr/assets/web-logo/default/logo.svg"
+          alt=""
+        ></img>
         <input
-          style={{
-            borderRadius: 10,
-            width: 400,
-            height: 30,
-            justifyContent: "space-around",
-          }}
+          className="searchBox"
           value={search}
           type="text"
           placeholder="Recherche des articles"
           onChange={handleChange}
         />
-        <button type="submit" onClick={handleSearch}>
-          Search
-        </button>
       </form>
     </div>
   );

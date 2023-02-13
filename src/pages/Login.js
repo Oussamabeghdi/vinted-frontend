@@ -41,7 +41,7 @@ const Login = ({ handleToken }) => {
       }}
     >
       <form
-        style={{ display: "flex", flexDirection: "column" }}
+        style={{ display: "flex", flexDirection: "column", gap: 30 }}
         onSubmit={handleLogin}
       >
         <h1>Login</h1>

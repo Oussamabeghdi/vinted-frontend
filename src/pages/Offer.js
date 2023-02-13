@@ -40,9 +40,11 @@ const Offer = () => {
           </div>
         );
       })}
-      <p>{data.product_name}</p>
-      <p>{data.produce_description}</p>
-      <p>{data.owner.account.username}</p>
+      <div className="infos">
+        <p>{data.product_name}</p>
+        <p>{data.produce_description}</p>
+        <p>{data.owner.account.username}</p>
+      </div>
     </div>
   );
 };
