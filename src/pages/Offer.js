@@ -41,13 +41,13 @@ const Offer = () => {
         const key = Object.keys(detail)[0];
         // console.log({detail[key]});
         return (
-          <div>
+          <div key={index}>
             <span>{key} :</span>
             <span> {detail[key]}</span>
           </div>
         );
       })}
-      {/* <Link to="/payment"> */}
+
       <div className="infos">
         <p>{data.product_name}</p>
         <p>{data.produce_description}</p>
@@ -67,7 +67,6 @@ const Offer = () => {
       >
         Acheter
       </button>
-      {/* </Link> */}
     </div>
   );
 };

@@ -28,7 +28,11 @@ const Home = ({ search }) => {
     <section>
       <div>
         <img
-          style={{ height: 340, width: 1325, objectFit: "cover" }}
+          style={{
+            height: 340,
+            width: "100%",
+            objectFit: "cover",
+          }}
           src="https://static.vinted.com/assets/seller-promotion/gender_test/a/banner-wide-7403f719caac875cfeea61593da7fc7e7320c126193b4ff654e4397f54d430ae.jpg"
           alt=""
         />

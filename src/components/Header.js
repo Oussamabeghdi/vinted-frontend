@@ -1,12 +1,20 @@
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ handleToken, token, search, setSearch }) => {
   // const token = Cookies.get("token-vinted");
-
+  const navigate = useNavigate();
   return (
     <header>
       <div className="header">
+        <Link to="/">
+          <img
+            style={{ height: 100, width: 100, marginRight: "50px" }}
+            src="https://www.vinted.fr/assets/web-logo/default/logo.svg"
+            alt=""
+          />
+        </Link>
         <SearchBar search={search} setSearch={setSearch} />
 
         {/* Si le token existe on affiche deconnexion sinon s'inscrire et se connecter */}
@@ -15,6 +23,7 @@ const Header = ({ handleToken, token, search, setSearch }) => {
             onClick={() => {
               // Cookies.remove("token-vinted");
               handleToken(null);
+              navigate("/");
             }}
           >
             Se Déconnecter
@@ -31,7 +40,15 @@ const Header = ({ handleToken, token, search, setSearch }) => {
           </>
         )}
         <Link to={token ? "/publish" : "/login"}>
-          <button className="sell">Vends tes articles</button>
+          <button
+            style={{
+              fontSize: "12px",
+              color: "white",
+              backgroundColor: "#56bfc7",
+            }}
+          >
+            Vends tes articles
+          </button>
         </Link>
       </div>
     </header>

@@ -2,9 +2,6 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Cookies from "js-cookie";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-import CheckoutForm from "./components/CheckoutForm";
 
 //Pages
 import Home from "./pages/Home";
@@ -17,10 +14,6 @@ import Header from "./components/Header";
 import Modal from "./components/Modal";
 import Footer from "./components/Footer";
 import Publish from "./pages/Publish";
-
-// const stripePromise = loadStripe(
-//   "pk_test_51IpvphDqQKb3lCIT3UU1fIPnAXyyG57gLns831kNwLVGCFo1a3MtSucuiIwEijgip8fL85zUlKZKTK0a2JAhSWHt00ZWSjTErF"
-// );
 
 function App() {
   // State dans lequel je stock la valeur de token sa valeur de base sera :

@@ -10,7 +10,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   /* border: 1px solid sienna; */
   grid-gap: 10px;
-  margin: 0 80px;
+  margin: 20px 80px;
 }
 .image-offer {
   height: 360px;
@@ -35,11 +35,9 @@ article p {
 }
 .header {
   height: 115px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-  /* justify-content: space-evenly; */
 }
 .header-content {
   display: flex;
@@ -57,6 +55,7 @@ article p {
   align-items: center;
   justify-content: center;
   margin-left: 20px;
+  font-size: 12px;
 }
 
 .modal {
@@ -89,8 +88,4 @@ article p {
   margin-left: 10px;
 
   background-color: #f5f6f7;
-}
-.sell {
-  background-color: #56bfc7;
-  color: white;
 }

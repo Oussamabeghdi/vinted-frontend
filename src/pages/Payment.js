@@ -16,7 +16,7 @@ const Payment = () => {
       <Elements stripe={stripePromise}>
         <CheckoutForm />
       </Elements>
-      <span>Il ne vous reste plus qu'un étape pour vous offrir {title} .</span>
+      <span>Il ne vous reste plus qu'une étape pour vous offrir {title} .</span>
       <span> Vous allez payer {price} €</span>
     </div>
   );
