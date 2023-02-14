@@ -10,7 +10,7 @@ const Home = ({ search }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}&priceMin=10&priceMax=500&limit=15&page=1`
+          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
         );
         // console.log(response.data);
         setData(response.data);
@@ -25,11 +25,20 @@ const Home = ({ search }) => {
   return isLoading ? (
     <p>Loading...</p>
   ) : (
-    <div className="grid-container">
-      {data.offers.map((offer) => {
-        return <OfferCard offerInfos={offer} key={offer._id} />;
-      })}
-    </div>
+    <section>
+      <div>
+        <img
+          style={{ height: 340, width: 1325, objectFit: "cover" }}
+          src="https://static.vinted.com/assets/seller-promotion/gender_test/a/banner-wide-7403f719caac875cfeea61593da7fc7e7320c126193b4ff654e4397f54d430ae.jpg"
+          alt=""
+        />
+      </div>
+      <div className="grid-container">
+        {data.offers.map((offer) => {
+          return <OfferCard offerInfos={offer} key={offer._id} />;
+        })}
+      </div>
+    </section>
   );
 };
 export default Home;

@@ -1,12 +1,12 @@
-import { useState } from "react";
+// import { useState } from "react";
 
-const Footer = () => {
-  const [visible, setVisible] = useState(false);
+const Footer = ({ visible, setVisible }) => {
+  // const [visible, setVisible] = useState(false);
 
   return (
-    <div style={{ height: 150, border: "1px solid red", marginTop: 10 }}>
-      <span>footer</span>
+    <div style={{ height: 100, marginTop: 10 }}>
       <button
+        style={{ display: "none" }}
         onClick={() => {
           setVisible(!visible); // on inverse la valeur de `visible` à chaque click
         }}

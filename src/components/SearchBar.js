@@ -1,9 +1,6 @@
-// import { useState } from "react";
-// import Offer from "../pages/Offer";
-
 const SearchBar = ({ search, setSearch }) => {
   const handleSearch = (event) => {
-    console.log("salut");
+    // console.log("salut");
     event.preventDefault();
     setSearch(search);
   };
@@ -13,12 +10,12 @@ const SearchBar = ({ search, setSearch }) => {
 
   return (
     <div className="header-content">
+      <img
+        style={{ height: 100, width: 100 }}
+        src="https://www.vinted.fr/assets/web-logo/default/logo.svg"
+        alt=""
+      />
       <form onSubmit={handleSearch}>
-        <img
-          style={{ height: 100, width: 100 }}
-          src="https://www.vinted.fr/assets/web-logo/default/logo.svg"
-          alt=""
-        ></img>
         <input
           className="searchBox"
           value={search}

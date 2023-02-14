@@ -8,7 +8,6 @@ const Header = ({ handleToken, token, search, setSearch }) => {
     <header>
       <div className="header">
         <SearchBar search={search} setSearch={setSearch} />
-        {/* <SlideBar /> */}
 
         {/* Si le token existe on affiche deconnexion sinon s'inscrire et se connecter */}
         {token ? (
@@ -31,11 +30,10 @@ const Header = ({ handleToken, token, search, setSearch }) => {
             </Link>
           </>
         )}
+        <Link to={token ? "/publish" : "/login"}>
+          <button>Vends tes articles</button>
+        </Link>
       </div>
-      <img
-        style={{ height: 340, width: 1325, objectFit: "cover" }}
-        src="https://static.vinted.com/assets/seller-promotion/gender_test/a/banner-wide-7403f719caac875cfeea61593da7fc7e7320c126193b4ff654e4397f54d430ae.jpg"
-      ></img>
     </header>
   );
 };
