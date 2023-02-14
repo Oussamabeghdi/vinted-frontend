@@ -31,7 +31,7 @@ const Header = ({ handleToken, token, search, setSearch }) => {
           </>
         )}
         <Link to={token ? "/publish" : "/login"}>
-          <button>Vends tes articles</button>
+          <button className="sell">Vends tes articles</button>
         </Link>
       </div>
     </header>

@@ -18,9 +18,9 @@ import Modal from "./components/Modal";
 import Footer from "./components/Footer";
 import Publish from "./pages/Publish";
 
-const stripePromise = loadStripe(
-  "pk_test_51IpvphDqQKb3lCIT3UU1fIPnAXyyG57gLns831kNwLVGCFo1a3MtSucuiIwEijgip8fL85zUlKZKTK0a2JAhSWHt00ZWSjTErF"
-);
+// const stripePromise = loadStripe(
+//   "pk_test_51IpvphDqQKb3lCIT3UU1fIPnAXyyG57gLns831kNwLVGCFo1a3MtSucuiIwEijgip8fL85zUlKZKTK0a2JAhSWHt00ZWSjTErF"
+// );
 
 function App() {
   // State dans lequel je stock la valeur de token sa valeur de base sera :
@@ -59,9 +59,6 @@ function App() {
       </Routes>
       <Footer visible={visible} setVisible={setVisible} />
       {visible && <Modal setVisible={setVisible} />}
-      <Elements stripe={stripePromise}>
-        <CheckoutForm />
-      </Elements>
     </Router>
   );
 }

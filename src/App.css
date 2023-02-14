@@ -53,20 +53,12 @@ article p {
   background-color: white;
   border: solid #2db1ba 1px;
   color: #56bfc7;
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-left: 20px;
 }
-/* .modal-root {
-  color: red;
-  Pour que la modal prenne tout l'écran :
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
+
 .modal {
   background-color: white;
   width: 700px;
@@ -90,12 +82,15 @@ article p {
   align-items: center;
 }
 .searchBox {
-  align-items: center;
   border: none;
   border-radius: 10px;
   width: 600px;
   height: 40px;
+  margin-left: 10px;
 
-  /* justify-content: space-around; */
   background-color: #f5f6f7;
+}
+.sell {
+  background-color: #56bfc7;
+  color: white;
 }

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 const Offer = () => {
   const [data, setData] = useState();
@@ -11,16 +10,11 @@ const Offer = () => {
   const params = useParams();
   const id = params.id;
 
-  const Navigate = useNavigate();
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    Navigate("/payment", {
-      state: {
-        title: `${data.product_name}`,
-        price: `${data.product_price}`,
-      },
-    });
-  };
+  const navigate = useNavigate();
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+
+  // };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -60,7 +54,17 @@ const Offer = () => {
         <p>{data.owner.account.username}</p>
       </div>
 
-      <button onClick={handleSubmit} type="submit">
+      <button
+        onClick={() => {
+          navigate("/payment", {
+            state: {
+              title: `${data.product_name}`,
+              price: `${data.product_price}`,
+            },
+          });
+        }}
+        type="submit"
+      >
         Acheter
       </button>
       {/* </Link> */}
