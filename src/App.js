@@ -44,7 +44,7 @@ function App() {
       />
       <Routes>
         <Route path="/" element={<Home search={search} />} />
-        <Route path="/offer/:id" element={<Offer />} />
+        <Route path="/offer/:id" element={<Offer token={token} />} />
         <Route path="/signup" element={<Signup handleToken={handleToken} />} />
         <Route path="/login" element={<Login handleToken={handleToken} />} />
         <Route path="/publish" element={<Publish token={token} />} />

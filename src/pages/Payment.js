@@ -3,7 +3,7 @@ import CheckoutForm from "../components/CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
-const Payment = () => {
+const Payment = ({ token }) => {
   const location = useLocation();
   const { title } = location.state;
   const { price } = location.state;

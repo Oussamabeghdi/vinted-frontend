@@ -10,7 +10,8 @@ const Home = ({ search }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
+          // `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
+          `https://site--vinted-backend--9gtnl5qyn2yw.code.run/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
         );
         // console.log(response.data);
         setData(response.data);

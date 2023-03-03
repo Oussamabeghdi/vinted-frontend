@@ -24,7 +24,8 @@ const Signup = ({ handleToken }) => {
       // je fais une requete en post: 1 argument l'url que j'interroge
       //   et en 2eme argument j'envoie les infos de l'utilisateur (username,email,password...)
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+        // "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+        "https://site--vinted-backend--9gtnl5qyn2yw.code.run/user/signup",
 
         {
           email: email,
