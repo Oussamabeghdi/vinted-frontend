@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import { useNavigate } from "react-router-dom";
 
-const Header = ({ handleToken, token, search, setSearch }) => {
+const Header = ({ handleTokenAndId, token, search, setSearch }) => {
   // const token = Cookies.get("token-vinted");
   const navigate = useNavigate();
   return (
@@ -22,7 +22,7 @@ const Header = ({ handleToken, token, search, setSearch }) => {
           <button
             onClick={() => {
               // Cookies.remove("token-vinted");
-              handleToken(null);
+              handleTokenAndId(null, null);
               navigate("/");
             }}
           >

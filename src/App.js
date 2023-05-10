@@ -9,28 +9,35 @@ import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Payment from "./pages/Payment";
+import Publish from "./pages/Publish";
+
 //component
 import Header from "./components/Header";
-import Modal from "./components/Modal";
-import Footer from "./components/Footer";
-import Publish from "./pages/Publish";
+// import Modal from "./components/Modal";
+// import Footer from "./components/Footer";
 
 function App() {
   // State dans lequel je stock la valeur de token sa valeur de base sera :
   // Si je trouve un cookie token, alors ce cookie sinon , null
 
-  const [token, setToken] = useState(Cookies.get("token-vinted") || null);
-  const [visible, setVisible] = useState(false);
+  const [token, setToken] = useState(Cookies.get("token") || null);
+  const [id, setId] = useState(Cookies.get("id-vinted") || null);
+
+  // const [visible, setVisible] = useState(false);
   const [search, setSearch] = useState("");
 
   // Cette fonction stockera le token dans le state et dans les cookies ou supprimer le token dans le state et dans les cookies
-  const handleToken = (token) => {
-    if (token) {
+  const handleTokenAndId = (token, id) => {
+    if (token && id) {
       setToken(token);
-      Cookies.set("token-vinted", token, { expires: 14 });
+      setId(id);
+      Cookies.set("token", token, { expires: 14 });
+      Cookies.set("id-vinted", id, { expires: 14 });
     } else {
       setToken(null);
-      Cookies.remove("token-vinted");
+      setId(null);
+      Cookies.remove("token");
+      Cookies.remove("id-vinted");
     }
   };
 
@@ -38,20 +45,27 @@ function App() {
     <Router>
       <Header
         search={search}
+        id={id}
         token={token}
-        handleToken={handleToken}
+        handleTokenAndId={handleTokenAndId}
         setSearch={setSearch}
       />
       <Routes>
         <Route path="/" element={<Home search={search} />} />
         <Route path="/offer/:id" element={<Offer token={token} />} />
-        <Route path="/signup" element={<Signup handleToken={handleToken} />} />
-        <Route path="/login" element={<Login handleToken={handleToken} />} />
+        <Route
+          path="/signup"
+          element={<Signup handleTokenAndId={handleTokenAndId} />}
+        />
+        <Route
+          path="/login"
+          element={<Login handleTokenAndId={handleTokenAndId} />}
+        />
         <Route path="/publish" element={<Publish token={token} />} />
         <Route path="/payment" element={<Payment token={token} />} />
       </Routes>
-      <Footer visible={visible} setVisible={setVisible} />
-      {visible && <Modal setVisible={setVisible} />}
+      {/* <Footer visible={visible} setVisible={setVisible} />
+      {visible && <Modal setVisible={setVisible} />} */}
     </Router>
   );
 }

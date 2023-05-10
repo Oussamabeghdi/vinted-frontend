@@ -5,11 +5,13 @@ import axios from "axios";
 
 const Publish = ({ token }) => {
   const [picture, setPicture] = useState();
+
   const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
   const [brand, setBrand] = useState("");
   const [size, setSize] = useState("");
   const [color, setColor] = useState("");
-  const [description, setDescription] = useState("");
   const [condition, setCondition] = useState("");
   const [city, setCity] = useState("");
   const [price, setPrice] = useState("");
@@ -29,14 +31,17 @@ const Publish = ({ token }) => {
       formData.append("picture", picture);
 
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
+        // "http://localhost:3000/publish",
+        // "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
+        "https://site--vinted-backend--9gtnl5qyn2yw.code.run/offer/publish",
         formData,
         {
           headers: {
-            authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
           },
         }
       );
+      // console.log(token);
       console.log(response.data);
     } catch (error) {
       console.log(error.response.data);
@@ -44,40 +49,60 @@ const Publish = ({ token }) => {
   };
 
   return token ? (
-    <div
-      style={{
-        height: "100vh",
-        wudth: "100vw",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <div className="publish-container">
       <form onSubmit={handleSubmit}>
         <h2>Vends ton article</h2>
-        <label htmlFor="file">Choisis une image</label>
-        <input
-          type="file"
-          onChange={(event) => {
-            setPicture(event.target.files[0]);
-          }}
-        />
-        {picture && <img src={URL.createObjectURL(picture)} alt="product" />}
-        <CustomInput title={"Titre"} state={title} setState={setTitle} />
-        <CustomInput
-          textArea
-          title="Décrits ton article"
-          state={description}
-          setState={setDescription}
-        />
-        <CustomInput title={"Marque"} state={brand} setState={setBrand} />
+        <div className="picture">
+          <input
+            style={{
+              width: "400px",
+              height: "100px",
+              border: "2px solid green",
+            }}
+            type="file"
+            onChange={(event) => {
+              setPicture(event.target.files[0]);
+            }}
+          />
+          {picture && (
+            <img
+              style={{ width: "200px", height: "200px" }}
+              src={URL.createObjectURL(picture)}
+              alt="product"
+            />
+          )}
+        </div>
 
-        <CustomInput title={"Taille"} state={size} setState={setSize} />
-        <CustomInput title={"Couleur"} state={color} setState={setColor} />
-        <CustomInput title={"Etat"} state={condition} setState={setCondition} />
-        <CustomInput title={"Lieu"} state={city} setState={setCity} />
-        <CustomInput title={"Prix"} state={price} setState={setPrice} />
-        <input type="submit" value="Publier l'offre" />
+        <div className="input-container-title-description">
+          <CustomInput title={"Titre"} state={title} setState={setTitle} />
+          <CustomInput
+            textArea
+            title="Décrits ton article"
+            state={description}
+            setState={setDescription}
+          />
+        </div>
+
+        <div className="input-container-b-s-c-c">
+          <CustomInput
+            className="input-title"
+            title={"Marque"}
+            state={brand}
+            setState={setBrand}
+          />
+          <CustomInput title={"Taille"} state={size} setState={setSize} />
+          <CustomInput title={"Couleur"} state={color} setState={setColor} />
+          <CustomInput
+            title={"Etat"}
+            state={condition}
+            setState={setCondition}
+          />
+          <CustomInput title={"Lieu"} state={city} setState={setCity} />
+        </div>
+        <div className="price-input">
+          <CustomInput title={"Prix"} state={price} setState={setPrice} />
+        </div>
+        <input className="submit" type="submit" value="Publier l'offre" />
       </form>
     </div>
   ) : (

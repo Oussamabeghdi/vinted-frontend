@@ -1,37 +1,45 @@
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import axios from "axios";
 import { useState } from "react";
+import Cookies from "js-cookie";
 
-const CheckoutForm = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [completed, setCompleted] = useState(false);
+const CheckoutForm = ({ product_name, product_price }) => {
+  const [paymentStatus, setPaymentStatus] = useState(0); // 0 = pas encore cliqué / 1 = en attente de réponse / 2 = OK / 3 = Error
 
   const stripe = useStripe();
   const elements = useElements();
 
+  const userId = Cookies.get("id-vinted");
+  console.log(userId);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      setIsLoading(true);
+      setPaymentStatus(1);
       const cardElement = elements.getElement(CardElement);
       const stripeResponse = await stripe.createToken(cardElement, {
-        name: "L'id de l'acheteur",
+        name: userId,
       });
       const stripeToken = stripeResponse.token.id;
-      console.log(stripeToken);
+      // console.log(stripeToken);
       const response = await axios.post(
+        "http://localhost:3000/payment",
         // "https://lereacteur-vinted-api.herokuapp.com/payment",
-        "https://site--vinted-backend--9gtnl5qyn2yw.code.run/payment",
+        // "https://site--vinted-backend--9gtnl5qyn2yw.code.run/payment",
         {
           stripeToken: stripeToken,
+          // le token que vous avez reçu de l'API Stripe
+          title: product_name,
+          amount: product_price,
+          // le prix indiquée dans l'annonce
         }
       );
-      console.log(response.data);
-      if (response.data === "succeeded") {
-        setIsLoading(false);
-        setCompleted(true);
+      // console.log(response.data);
+      if (response.data.status === "succeeded") {
+        setPaymentStatus(2);
       }
     } catch (error) {
+      setPaymentStatus(3);
       console.log(error.message);
     }
   };
@@ -51,12 +59,15 @@ const CheckoutForm = () => {
       <h1>Formulaire de paiement</h1>
       <CardElement />
 
-      {completed ? (
+      {paymentStatus === 2 ? (
         <p>Paiement effectué</p>
       ) : (
-        <button style={{ width: "100px" }} disabled={isLoading} type="submit">
+        <button disabled={paymentStatus === 1} type="submit">
           Payer
         </button>
+      )}
+      {paymentStatus === 3 && (
+        <p>Une erreur est survenue, veuillez réessayer : </p>
       )}
     </form>
   );

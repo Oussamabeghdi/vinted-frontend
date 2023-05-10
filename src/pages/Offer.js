@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Offer = ({ token }) => {
   const [data, setData] = useState();
@@ -10,7 +10,7 @@ const Offer = ({ token }) => {
   const params = useParams();
   const id = params.id;
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   // const handleSubmit = async (event) => {
   //   event.preventDefault();
 
@@ -20,6 +20,7 @@ const Offer = ({ token }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
+          // `http://localhost:3000/offer/${id}`
           // `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
           `https://site--vinted-backend--9gtnl5qyn2yw.code.run/offer/${id}`
         );
@@ -36,11 +37,13 @@ const Offer = ({ token }) => {
     <p>Loading...</p>
   ) : (
     <div>
-      <img src={data.product_image.secure_url} alt="" />
+      <img src={data.product_image.secure_url} alt="product" />
       <p>{data.product_price} €</p>
+      {/* Je parcours product_details */}
       {data.product_details.map((detail, index) => {
+        //Je recupère le nom de la clé de detail
         const key = Object.keys(detail)[0];
-        // console.log({detail[key]});
+        console.log(detail[key]);
         return (
           <div key={index}>
             <span>{key} :</span>
@@ -54,10 +57,10 @@ const Offer = ({ token }) => {
         <p>{data.produce_description}</p>
         <p>{data.owner.account.username}</p>
       </div>
-      {/* <Link to={token ? "/payment" : "/login"} state={token ? data : null}>
+      <Link to={token ? "/payment" : "/login"} state={token ? data : null}>
         ACHETER
-      </Link> */}
-      <button
+      </Link>
+      {/* <button
         onClick={() => {
           navigate("/payment", {
             state: {
@@ -69,7 +72,7 @@ const Offer = ({ token }) => {
         type="submit"
       >
         Acheter
-      </button>
+      </button> */}
     </div>
   );
 };

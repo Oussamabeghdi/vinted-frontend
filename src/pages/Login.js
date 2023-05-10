@@ -1,9 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
-
 import { useState } from "react";
 import axios from "axios";
 
-const Login = ({ handleToken }) => {
+const Login = ({ handleTokenAndId }) => {
   // on crée deux state pour avoir acces en permanence aux valeur de nos input et pour recuperer ces valeurs on fait onchange et onclick pour le bouton se connecter
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,6 +13,7 @@ const Login = ({ handleToken }) => {
     event.preventDefault();
     try {
       const response = await axios.post(
+        // "http://localhost:3000/user/login",
         // "https://lereacteur-vinted-api.herokuapp.com/user/login",
         " https://site--vinted-backend--9gtnl5qyn2yw.code.run/user/login",
         {
@@ -24,14 +24,14 @@ const Login = ({ handleToken }) => {
       console.log(response.data);
       if (response.data.token) {
         // Cookies.set("token-vinted", response.data.token, { expire: 14 });
-        handleToken(response.data.token);
+        handleTokenAndId(response.data.token, response.data._id);
         navigate("/");
       }
     } catch (error) {
       console.log(error.response.data);
     }
   };
-  // au niveau de la balise forme on fait un onsubmit
+  // au niveau de la balise form on fait un onsubmit
   return (
     <div
       style={{

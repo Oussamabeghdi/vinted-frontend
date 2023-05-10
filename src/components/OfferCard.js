@@ -5,6 +5,8 @@ const OfferCard = ({ offerInfos }) => {
     <Link to={`/offer/${offerInfos._id}`}>
       <article>
         <div className="offer-container">
+          {/* Si le vendeur a un avatar, je l'affiche */}
+
           {offerInfos.owner.account.avatar && (
             <img
               style={{
@@ -30,8 +32,11 @@ const OfferCard = ({ offerInfos }) => {
         <p>{offerInfos.product_price} € </p>
         <div
           className="offer-infos"
+          /* Column-reverse permet d'inverser l'ordre de mes p */
+
           style={{ display: "flex", flexDirection: "column-reverse" }}
         >
+          {/* je parcours product_details */}
           {offerInfos.product_details.map((detail, index) => {
             if (detail.TAILLE) {
               return <p key={index}>{detail.TAILLE}</p>;

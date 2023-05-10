@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 // import { error } from "console";
 
-const Signup = ({ handleToken }) => {
+const Signup = ({ handleTokenAndId }) => {
   // States qui gèrent mes inputs
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -26,6 +26,7 @@ const Signup = ({ handleToken }) => {
       const response = await axios.post(
         // "https://lereacteur-vinted-api.herokuapp.com/user/signup",
         "https://site--vinted-backend--9gtnl5qyn2yw.code.run/user/signup",
+        // "http://localhost:3000/user/signup",
 
         {
           email: email,
@@ -37,7 +38,7 @@ const Signup = ({ handleToken }) => {
       // si je recois bien un token
       if (response.data.token) {
         // je l'enregistre dans mon state et mes cookies
-        handleToken(response.data.token);
+        handleTokenAndId(response.data.token, response.data._id);
         // Cookies.set("token-vinted", response.data.token, { expire: 14 });
         // et je redirige vers home
         navigate("/");
@@ -47,12 +48,12 @@ const Signup = ({ handleToken }) => {
       console.log(error.response.data);
       console.log(error.response.status);
       //   si lerreur est egale a this email hase already an account je vais devoir
-      if (error.response.data.message === "This email already has an account") {
+      if (error.response.data.message === "email already used") {
         setErrorMessage(
           "Cet email est déjà utilisé veuillez créer un email valide"
         );
       }
-      if (error.response.data.message === "Missing parameters") {
+      if (error.response.data.message === "missing parameters") {
         setErrorMessage("Veuillez remplir tous les champs svp");
       }
       if (error.response.data.message === "User not found") {
@@ -113,9 +114,7 @@ const Signup = ({ handleToken }) => {
 
         <input type="submit" value="s'inscrire"></input>
         {/* si erreur message existe alors on l'affiche */}
-        {errorMessage && (
-          <p style={{ color: "red" }}>"utilisateur non trouvé"{errorMessage}</p>
-        )}
+        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         <Link to="/login">Tu as déja un compte, connecte-toi</Link>
       </form>
     </section>
