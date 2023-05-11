@@ -31,13 +31,14 @@ const Publish = ({ token }) => {
       formData.append("picture", picture);
 
       const response = await axios.post(
-        // "http://localhost:3000/publish",
+        "http://localhost:3000/offer/publish",
         // "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
-        "https://site--vinted-backend--9gtnl5qyn2yw.code.run/offer/publish",
+        // "https://site--vinted-backend--9gtnl5qyn2yw.code.run/offer/publish",
         formData,
         {
           headers: {
             Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
           },
         }
       );
