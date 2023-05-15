@@ -10,7 +10,6 @@ const Offer = ({ token }) => {
 
   const params = useParams();
   const id = params.id;
-
   // const navigate = useNavigate();
   // const handleSubmit = async (event) => {
   //   event.preventDefault();
@@ -37,40 +36,38 @@ const Offer = ({ token }) => {
   return isLoading ? (
     <p>Loading...</p>
   ) : (
-    <section className="offer">
-      <div className="offer-bloc">
-        <div className="col-left">
-          <img src={data.product_image.secure_url} alt="product" />
-        </div>
-        <div className="col-right">
-          <p className="offer-price">{data.product_price} €</p>
-          {/* Je parcours product_details */}
-          {data.product_details.map((detail, index) => {
+    <section className="offer-wrapper">
+      <img
+        className="offer-image"
+        src={data?.product_image?.secure_url}
+        alt="product"
+      />
+      <div className="offer-details-wrapper">
+        <p className="offer-price">{data?.product_price} €</p>
+        {/* Je parcours product_details */}
+        <div className="offer-details-list">
+          {data?.product_details.map((detail, index) => {
             //Je recupère le nom de la clé de detail
             const key = Object.keys(detail)[0];
-            console.log(detail[key]);
+
             return (
-              <div className="offer-details">
-                <div key={index}>
-                  <span className="key">{key} :</span>
-                  <span className="detail-key"> {detail[key]}</span>
-                </div>
+              <div className="offer-details" key={`detail n°: ${index}`}>
+                <p className="key">{key} :</p>
+                <p className="detail-key"> {detail[key]} </p>
               </div>
             );
           })}
-          <div className="offer-infos">
-            <p>{data.product_name}</p>
-            <p>{data.produce_description}</p>
-            <p>{data.owner.account.username}</p>
-          </div>
-          <div className="buy-button">
-            <Link
-              to={token ? "/payment" : "/login"}
-              state={token ? data : null}
-            >
-              <span>Acheter</span>
-            </Link>
-          </div>
+        </div>
+        <div className="divider"></div>
+        <div className="offer-infos">
+          <p className="offer-infos-title">{data?.product_name}</p>
+          <p className="offer-infos-description">{data?.product_description}</p>
+          <p className="offer-infos-username">{data?.owner.account.username}</p>
+        </div>
+        <div className="buy-button">
+          <Link to={token ? "/payment" : "/login"} state={token ? data : null}>
+            <span>Acheter</span>
+          </Link>
         </div>
       </div>
     </section>
