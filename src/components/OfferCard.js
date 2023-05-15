@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useMemo } from "react";
-
+import "../styles/components/OfferCard.css";
 const OfferCard = ({ offerInfos }) => {
   const account = useMemo(() => offerInfos?.owner?.account, [offerInfos]);
 
@@ -11,16 +11,7 @@ const OfferCard = ({ offerInfos }) => {
           {/* Si le vendeur a un avatar, je l'affiche */}
 
           {account?.avatar && (
-            <img
-              style={{
-                height: 50,
-                width: 50,
-                borderRadius: "50%",
-                objectFit: "cover",
-              }}
-              src={account.avatar?.secure_url}
-              alt="owner"
-            />
+            <img src={account.avatar?.secure_url} alt="owner" />
           )}
           <span className="offer-container">{account?.username}</span>
         </div>
@@ -31,12 +22,7 @@ const OfferCard = ({ offerInfos }) => {
         />
 
         <p>{offerInfos.product_price} € </p>
-        <div
-          className="offer-infos"
-          /* Column-reverse permet d'inverser l'ordre de mes p */
-
-          style={{ display: "flex", flexDirection: "column-reverse" }}
-        >
+        <div className="offerCard-infos">
           {/* je parcours product_details */}
           {offerInfos.product_details.map((detail, index) => {
             if (detail.TAILLE) {

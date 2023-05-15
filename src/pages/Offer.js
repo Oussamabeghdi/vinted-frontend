@@ -36,8 +36,10 @@ const Offer = ({ token }) => {
   return isLoading ? (
     <p>Loading...</p>
   ) : (
-    <div>
-      <img src={data.product_image.secure_url} alt="product" />
+    <div className="offer-bloc">
+      <div>
+        <img src={data.product_image.secure_url} alt="product" />
+      </div>
       <p>{data.product_price} €</p>
       {/* Je parcours product_details */}
       {data.product_details.map((detail, index) => {
@@ -52,7 +54,7 @@ const Offer = ({ token }) => {
         );
       })}
 
-      <div className="infos">
+      <div className="offer-infos">
         <p>{data.product_name}</p>
         <p>{data.produce_description}</p>
         <p>{data.owner.account.username}</p>
@@ -60,19 +62,6 @@ const Offer = ({ token }) => {
       <Link to={token ? "/payment" : "/login"} state={token ? data : null}>
         ACHETER
       </Link>
-      {/* <button
-        onClick={() => {
-          navigate("/payment", {
-            state: {
-              title: `${data.product_name}`,
-              price: `${data.product_price}`,
-            },
-          });
-        }}
-        type="submit"
-      >
-        Acheter
-      </button> */}
     </div>
   );
 };

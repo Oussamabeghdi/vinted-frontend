@@ -17,10 +17,6 @@ const Header = ({ handleTokenAndId, token, search, setSearch }) => {
         </Link>
         <div className="inputsearch-slider">
           <SearchBar search={search} setSearch={setSearch} />
-          <div className="slider-price">
-            <label for="volume">Prix entre : </label>
-            <input type="range" id="volume" name="volume" min="0" max="11" />
-          </div>
         </div>
 
         {/* Si le token existe on affiche deconnexion sinon s'inscrire et se connecter */}

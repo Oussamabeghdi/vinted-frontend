@@ -6,27 +6,17 @@
 body {
   font-family: "Roboto";
 }
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 10px;
-  margin: 20px 80px;
-}
-.image-offer {
-  height: 360px;
-  width: 235px;
-  object-fit: cover;
-  border-radius: 5px;
-}
-.offer-container {
-  margin-bottom: 10px;
+.offer-bloc {
   display: flex;
-  align-items: center;
-  margin-left: 10px;
-  color: #a3b3c3;
+  justify-content: center;
+
+  width: 1000px;
+  border: 1px solid red;
 }
-.offer-infos p {
-  color: #a3b3c3;
+
+.offer-infos {
+  display: flex;
+  flex-direction: column;
 }
 
 article p {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-// import { error } from "console";
+import "../styles/pages/Signup.css";
 
 const Signup = ({ handleTokenAndId }) => {
   // States qui gèrent mes inputs
@@ -9,6 +9,7 @@ const Signup = ({ handleTokenAndId }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
+
   //   créer un state pour la réponse d'erreur à la création de l'email
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -18,11 +19,10 @@ const Signup = ({ handleTokenAndId }) => {
   // fonction qui sera appelée quand je clique sur submit pour pas quil ait de rafraichissement au click
   const handleSignup = async (event) => {
     event.preventDefault();
+
     // je fais disparaitre le message d'erreur
     setErrorMessage("");
     try {
-      // je fais une requete en post: 1 argument l'url que j'interroge
-      //   et en 2eme argument j'envoie les infos de l'utilisateur (username,email,password...)
       const response = await axios.post(
         // "https://lereacteur-vinted-api.herokuapp.com/user/signup",
         "https://site--vinted-backend--9gtnl5qyn2yw.code.run/user/signup",
@@ -47,7 +47,6 @@ const Signup = ({ handleTokenAndId }) => {
     } catch (error) {
       console.log(error.response.data);
       console.log(error.response.status);
-      //   si lerreur est egale a this email hase already an account je vais devoir
       if (error.response.data.message === "email already used") {
         setErrorMessage(
           "Cet email est déjà utilisé veuillez créer un email valide"
@@ -63,23 +62,12 @@ const Signup = ({ handleTokenAndId }) => {
   };
 
   return (
-    <section
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-      }}
-    >
-      <form
-        style={{ display: "flex", flexDirection: "column", gap: 30 }}
-        onSubmit={handleSignup}
-      >
-        {/* quand le contenu change je veux recuperer qui a eu lieu et la nouvelle valeur de mon state je veux que ça soit event .target.value */}
-        <h1>Signup</h1>
+    <div className="signup-page">
+      <form className="signup-form">
+        <h1>S'inscrire</h1>
         <input
           value={username}
-          type=" text"
+          type="text"
           placeholder="Nom d'utilisateur"
           onChange={(event) => {
             setUsername(event.target.value);
@@ -101,7 +89,8 @@ const Signup = ({ handleTokenAndId }) => {
             setPassword(event.target.value);
           }}
         ></input>
-        <div>
+
+        <div className="newsletter-checkbox">
           <input
             checked={newsletter}
             type="checkbox"
@@ -111,13 +100,28 @@ const Signup = ({ handleTokenAndId }) => {
           />
           <span>S'inscrire à notre newsletter</span>
         </div>
+        <div className="checkbox-paragraph">
+          {/* <p>
+              En m'inscrivant je confirme avoir lu et accepté les Termes &
+              Conditions et Politique de Confidentialité de Vinted. Je confirme
+              avoir au moins 18 ans.
+            </p> */}
+        </div>
 
-        <input type="submit" value="s'inscrire"></input>
-        {/* si erreur message existe alors on l'affiche */}
-        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-        <Link to="/login">Tu as déja un compte, connecte-toi</Link>
+        <div className="submit-wrapper">
+          <button className="submit-button" onClick={handleSignup}>
+            <span>S'inscrire</span>
+          </button>
+
+          {/* si erreur message existe alors on l'affiche  */}
+
+          <Link to="/login">
+            <p>Tu as déjà un compte? Connecte-toi !</p>{" "}
+          </Link>
+          {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+        </div>
       </form>
-    </section>
+    </div>
   );
 };
 export default Signup;

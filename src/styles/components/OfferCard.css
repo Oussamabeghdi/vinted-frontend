@@ -1,0 +1,29 @@
+.image-offer {
+  height: 360px;
+  width: 235px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.offer-container {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  color: #a3b3c3;
+}
+
+.offer-container img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.offerCard-infos {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.offerCard-infos p {
+  color: #a3b3c3;
+}
