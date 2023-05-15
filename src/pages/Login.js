@@ -1,21 +1,25 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import "../styles/pages/Login.css";
 
 const Login = ({ handleTokenAndId }) => {
   // on crée deux state pour avoir acces en permanence aux valeur de nos input et pour recuperer ces valeurs on fait onchange et onclick pour le bouton se connecter
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
 
   const handleLogin = async (event) => {
     event.preventDefault();
+    setErrorMessage("");
+    // navigate("/");
     try {
       const response = await axios.post(
-        // "http://localhost:3000/user/login",
+        "http://localhost:3000/user/login",
         // "https://lereacteur-vinted-api.herokuapp.com/user/login",
-        " https://site--vinted-backend--9gtnl5qyn2yw.code.run/user/login",
+        // " https://site--vinted-backend--9gtnl5qyn2yw.code.run/user/login",
         {
           email: email,
           password: password,
@@ -29,27 +33,26 @@ const Login = ({ handleTokenAndId }) => {
       }
     } catch (error) {
       console.log(error.response.data);
+
+      if (error.response.data.message === "Unauthorized 1") {
+        setErrorMessage("Votre email ou mot de passe est incorrect");
+      }
+
+      if (error.response.data.message === "Unauthorized") {
+        setErrorMessage("Votre email ou mot de passe est incorrect");
+      }
     }
   };
   // au niveau de la balise form on fait un onsubmit
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-      }}
-    >
-      <form
-        style={{ display: "flex", flexDirection: "column", gap: 30 }}
-        onSubmit={handleLogin}
-      >
-        <h1>Login</h1>
+    <div className="login-page">
+      <form className="login-form">
+        <h1>Se connecter</h1>
+
         <input
           value={email}
           type="email"
-          placeholder="Email"
+          placeholder="Adresse email"
           onChange={(event) => {
             setEmail(event.target.value);
           }}
@@ -62,8 +65,16 @@ const Login = ({ handleTokenAndId }) => {
             setPassword(event.target.value);
           }}
         />
-        <input type="submit" value="Se connecter" />
-        <Link to="/signup">Pas encore de compte ? Inscris-toi</Link>
+
+        <div className="submit-wrapper">
+          <button className="submit-button" onClick={handleLogin}>
+            <span>Se connecter</span>
+          </button>
+          <Link to="/signup">
+            <p>Pas encore de compte ? Inscris-toi !</p>
+          </Link>
+          {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+        </div>
       </form>
     </div>
   );

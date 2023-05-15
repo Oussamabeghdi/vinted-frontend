@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import OfferCard from "../components/OfferCard";
+import "../styles/pages/Home.css";
+import { TearSvg } from "../assets/svg/Tear";
+import { Link } from "react-router-dom";
 
-const Home = ({ search }) => {
+const Home = ({ search, token }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -10,11 +13,10 @@ const Home = ({ search }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          // `http://localhost:3000/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
+          "http://localhost:3000/offers"
           // `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
-          `https://site--vinted-backend--9gtnl5qyn2yw.code.run/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
+          //`https://site--vinted-backend--9gtnl5qyn2yw.code.run/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
         );
-        // console.log(response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -24,22 +26,26 @@ const Home = ({ search }) => {
     fetchData();
   }, [search]);
 
+  console.log(data);
+
   return isLoading ? (
     <p>Loading...</p>
   ) : (
     <section>
-      <div>
-        <img
-          style={{
-            height: 340,
-            width: "100%",
-            objectFit: "cover",
-          }}
-          src="https://static.vinted.com/assets/seller-promotion/gender_test/a/banner-wide-7403f719caac875cfeea61593da7fc7e7320c126193b4ff654e4397f54d430ae.jpg"
-          alt=""
-        />
+      <div className="home-wrapper">
+        <div className="home-info">
+          <p className="home-title-info">
+            Prêts à faire du tri dans vos placards ?
+          </p>
+          <Link to={token ? "/publish" : "login"} className="home-button">
+            Commencer à vendre
+          </Link>
+        </div>
+        <div className="home-tear">
+          <TearSvg />
+        </div>
       </div>
-      <div className="grid-container">
+      <div className="cards-wrapper">
         {data.offers.map((offer) => {
           return <OfferCard offerInfos={offer} key={offer._id} />;
         })}

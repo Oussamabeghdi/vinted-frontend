@@ -1,0 +1,33 @@
+.header {
+  height: 115px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header img {
+  object-fit: contain;
+  height: 100px;
+  width: 100px;
+  margin-right: 50px;
+}
+
+.header button {
+  width: 115px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: white;
+  border: solid #2db1ba 1px;
+  color: #56bfc7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  font-size: 12px;
+}
+
+.slider-price {
+  margin: 10px auto auto;
+  display: flex;
+  justify-content: flex-start;
+}

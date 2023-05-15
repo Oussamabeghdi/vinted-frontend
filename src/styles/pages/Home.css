@@ -1,0 +1,65 @@
+.home-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 500px;
+  background-image: url("https://static.vinted.com/assets/seller-promotion/gender_test/a/banner-wide-7403f719caac875cfeea61593da7fc7e7320c126193b4ff654e4397f54d430ae.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.home-info {
+  margin: 0 0 0 10%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 400px;
+  height: 250px;
+  background: white;
+  box-sizing: border-box;
+  border-radius: 3px;
+  box-shadow: 0 0 2px hsla(0, 0%, 7%, 0.24);
+}
+
+.home-title-info {
+  font-size: 30px;
+  letter-spacing: 1.2px;
+}
+
+.home-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 55%;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: #2aaeb7;
+  color: white;
+  cursor: pointer;
+}
+
+.home-tear {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  width: 1000px;
+}
+.cards-wrapper {
+  margin: 20px auto 0 auto;
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.start-to-sale {
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  background-color: #2aaeb7;
+  color: white;
+  cursor: pointer;
+}

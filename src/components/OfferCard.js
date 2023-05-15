@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
+import { useMemo } from "react";
 
 const OfferCard = ({ offerInfos }) => {
+  const account = useMemo(() => offerInfos?.owner?.account, [offerInfos]);
+
   return (
     <Link to={`/offer/${offerInfos._id}`}>
       <article>
         <div className="offer-container">
           {/* Si le vendeur a un avatar, je l'affiche */}
 
-          {offerInfos.owner.account.avatar && (
+          {account?.avatar && (
             <img
               style={{
                 height: 50,
@@ -15,13 +18,11 @@ const OfferCard = ({ offerInfos }) => {
                 borderRadius: "50%",
                 objectFit: "cover",
               }}
-              src={offerInfos.owner.account.avatar.secure_url}
+              src={account.avatar?.secure_url}
               alt="owner"
             />
           )}
-          <span className="offer-container">
-            {offerInfos.owner.account.username}
-          </span>
+          <span className="offer-container">{account?.username}</span>
         </div>
         <img
           className="image-offer"

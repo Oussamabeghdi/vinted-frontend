@@ -1,6 +1,8 @@
 import "./App.css";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
+
 import Cookies from "js-cookie";
 
 //Pages
@@ -15,7 +17,9 @@ import Publish from "./pages/Publish";
 import Header from "./components/Header";
 // import Modal from "./components/Modal";
 // import Footer from "./components/Footer";
-
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+library.add(faMagnifyingGlass);
 function App() {
   // State dans lequel je stock la valeur de token sa valeur de base sera :
   // Si je trouve un cookie token, alors ce cookie sinon , null
@@ -51,7 +55,7 @@ function App() {
         setSearch={setSearch}
       />
       <Routes>
-        <Route path="/" element={<Home search={search} />} />
+        <Route path="/" element={<Home search={search} token={token} />} />
         <Route path="/offer/:id" element={<Offer token={token} />} />
         <Route
           path="/signup"

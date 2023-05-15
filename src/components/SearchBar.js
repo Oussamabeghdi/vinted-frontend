@@ -1,3 +1,6 @@
+import "../styles/components/SearchBar.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const SearchBar = ({ search, setSearch }) => {
   const handleSearch = (event) => {
     // console.log("salut");
@@ -12,13 +15,17 @@ const SearchBar = ({ search, setSearch }) => {
     <div className="header-content">
       <form onSubmit={handleSearch}>
         <input
-          className="searchBox"
+          className="searchBar"
           value={search}
           type="text"
           placeholder="  Recherche des articles"
           onChange={handleChange}
         />
       </form>
+      <FontAwesomeIcon
+        className="fa-solid"
+        icon="fa-solid fa-magnifying-glass"
+      />
     </div>
   );
 };
