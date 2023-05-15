@@ -6,18 +6,6 @@
 body {
   font-family: "Roboto";
 }
-.offer-bloc {
-  display: flex;
-  justify-content: center;
-
-  width: 1000px;
-  border: 1px solid red;
-}
-
-.offer-infos {
-  display: flex;
-  flex-direction: column;
-}
 
 article p {
   color: #000000;

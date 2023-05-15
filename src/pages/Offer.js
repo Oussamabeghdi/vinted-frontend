@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import "../styles/pages/Offer.css";
 
 const Offer = ({ token }) => {
   const [data, setData] = useState();
@@ -36,33 +37,43 @@ const Offer = ({ token }) => {
   return isLoading ? (
     <p>Loading...</p>
   ) : (
-    <div className="offer-bloc">
-      <div>
-        <img src={data.product_image.secure_url} alt="product" />
-      </div>
-      <p>{data.product_price} €</p>
-      {/* Je parcours product_details */}
-      {data.product_details.map((detail, index) => {
-        //Je recupère le nom de la clé de detail
-        const key = Object.keys(detail)[0];
-        console.log(detail[key]);
-        return (
-          <div key={index}>
-            <span>{key} :</span>
-            <span> {detail[key]}</span>
+    <section className="offer">
+      <div className="offer-bloc">
+        <div className="col-left">
+          <img src={data.product_image.secure_url} alt="product" />
+        </div>
+        <div className="col-right">
+          <p className="offer-price">{data.product_price} €</p>
+          {/* Je parcours product_details */}
+          {data.product_details.map((detail, index) => {
+            //Je recupère le nom de la clé de detail
+            const key = Object.keys(detail)[0];
+            console.log(detail[key]);
+            return (
+              <div className="offer-details">
+                <div key={index}>
+                  <span className="key">{key} :</span>
+                  <span className="detail-key"> {detail[key]}</span>
+                </div>
+              </div>
+            );
+          })}
+          <div className="offer-infos">
+            <p>{data.product_name}</p>
+            <p>{data.produce_description}</p>
+            <p>{data.owner.account.username}</p>
           </div>
-        );
-      })}
-
-      <div className="offer-infos">
-        <p>{data.product_name}</p>
-        <p>{data.produce_description}</p>
-        <p>{data.owner.account.username}</p>
+          <div className="buy-button">
+            <Link
+              to={token ? "/payment" : "/login"}
+              state={token ? data : null}
+            >
+              <span>Acheter</span>
+            </Link>
+          </div>
+        </div>
       </div>
-      <Link to={token ? "/payment" : "/login"} state={token ? data : null}>
-        ACHETER
-      </Link>
-    </div>
+    </section>
   );
 };
 export default Offer;
