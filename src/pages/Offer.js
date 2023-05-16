@@ -10,11 +10,6 @@ const Offer = ({ token }) => {
 
   const params = useParams();
   const id = params.id;
-  // const navigate = useNavigate();
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-
-  // };
 
   useEffect(() => {
     const fetchData = async () => {

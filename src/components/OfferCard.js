@@ -4,15 +4,15 @@ import "../styles/components/OfferCard.css";
 
 const OfferCard = ({ offerInfos }) => {
   const account = useMemo(() => offerInfos?.owner?.account, [offerInfos]);
-  console.log(offerInfos);
+  console.log(offerInfos, "");
   return (
     <article className="card-wrapper">
       <div className="card-header">
         {/* Si le vendeur a un avatar, je l'affiche */}
 
-        {account?.avatar && (
-          <img src={account.avatar?.secure_url} alt="owner" />
-        )}
+        {account?.avatar &&
+          ((<img src={account.avatar?.secure_url} alt="owner" />),
+          console.log(offerInfos.username))}
         <p className="card-username">{offerInfos?.username}</p>
       </div>
       <Link className="card-details-link" to={`/offer/${offerInfos._id}`}>
