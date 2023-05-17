@@ -1,0 +1,39 @@
+.publish-field-wrapper {
+  width: 100%;
+  border-bottom: 1px solid #dadbdb;
+}
+
+.publish-no-border {
+  border-bottom: none;
+}
+
+.publish-field-content {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.publish-field-content textarea,
+input {
+  width: 640px;
+  padding: 5px 0;
+  border: none;
+  border-bottom: 1px solid #c4c7c9;
+}
+
+input::placeholder {
+  font-size: 20px;
+  color: #c4c7c9;
+}
+
+textarea::placeholder {
+  font-size: 20px;
+  color: #c4c7c9;
+}
+.publish-form-description {
+  height: 222px;
+}
+
+.publish-form-details {
+  height: 366px;
+}
