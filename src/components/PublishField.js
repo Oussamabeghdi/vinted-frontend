@@ -17,16 +17,17 @@ const PublishField = ({
         <label htmlFor={title}>{title} </label>
         {textArea ? (
           <textarea
+            className="publish-field"
             placeholder={placeholder}
             id={title}
-            cols="30"
-            rows="10"
+            rows="5"
             onChange={(event) => {
               setState(event.target.value);
             }}
           ></textarea>
         ) : (
           <input
+            className="publish-field"
             placeholder={placeholder}
             value={state}
             type="text"

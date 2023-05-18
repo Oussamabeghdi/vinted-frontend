@@ -35,14 +35,28 @@
 .publish-box-form::placeholder {
   color: #eeeeee;
 }
+
 .publish-form-picture {
-  flex-direction: unset;
   padding: 20px;
-  cursor: pointer;
   height: 250px;
 }
 
-.dropzone {
+.publish-picture-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.publish-picture {
+  height: 170px;
+}
+
+.publish-footer-picture {
+  display: flex;
+  justify-content: space-between;
+}
+
+.publish-border-upload {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,6 +64,13 @@
   height: 100%;
   border: 2px dotted #eeeeee;
   border-radius: 2px;
+}
+
+.dropzone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .dropzone-button {
@@ -80,4 +101,36 @@
 
 .publish-form-price {
   height: 122px;
+  align-items: flex-end;
+}
+
+.publish-checkbox-wrapper {
+  margin: 0 0 0 5px;
+  display: flex;
+  align-items: center;
+  width: 50%;
+  column-gap: 5px;
+}
+
+.changes-checkbox {
+  width: 24px;
+  height: 24px;
+  accent-color: #0ab1ba;
+  cursor: pointer;
+}
+
+.publish-submit-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.publish-submit {
+  width: 6%;
+  height: 40px;
+  background: #0ab1ba;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
 }

@@ -1,11 +1,14 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import PublishField from "../components/PublishField";
 import axios from "axios";
 import "../styles/pages/Publish.css";
+import { Trash } from "../assets/svg/Trash";
 
 const Publish = ({ token }) => {
+  const navigate = useNavigate();
+
   const [pictures, setPictures] = useState([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -15,6 +18,8 @@ const Publish = ({ token }) => {
   const [condition, setCondition] = useState("");
   const [city, setCity] = useState("");
   const [price, setPrice] = useState("");
+
+  const resetPicturesData = () => setPictures([]);
 
   const onDrop = useCallback((acceptedFiles) => {
     setPictures(
@@ -61,6 +66,8 @@ const Publish = ({ token }) => {
         }
       );
 
+      navigate("/");
+
       console.log(response.data);
     } catch (error) {
       console.log(error.response.data);
@@ -73,21 +80,30 @@ const Publish = ({ token }) => {
         <h1 className="publish-title">Vends ton article</h1>
         <form className="publish-form" onSubmit={handleSubmit}>
           <div className="publish-box-form publish-form-picture">
-            <div className="dropzone" {...getRootProps()}>
+            <div className="publish-border-upload">
               <input {...getInputProps()} accept="images/*" multiple={false} />
               {pictures.length ? (
                 <div>
                   {pictures.map((file) => (
-                    <div key={file.name}>
-                      <img src={file.preview} alt="preview" />
-                      <p>{file.name}</p>
+                    <div className="publish-picture-wrapper" key={file.name}>
+                      <img
+                        className="publish-picture"
+                        src={file.preview}
+                        alt="preview"
+                      />
+                      <div className="publish-footer-picture">
+                        <p>{file.name}</p>
+                        <Trash onClick={resetPicturesData} size={20} />
+                      </div>
                     </div>
                   ))}
                 </div>
               ) : (
-                <button className="dropzone-button">
-                  <span className="publish-outline">+</span> Ajouter une photo
-                </button>
+                <div className="dropzone" {...getRootProps()}>
+                  <button className="dropzone-button dropzone">
+                    <span className="publish-outline">+</span> Ajouter une photo
+                  </button>
+                </div>
               )}
             </div>
           </div>
@@ -107,6 +123,7 @@ const Publish = ({ token }) => {
               title={"Décrits ton article"}
               state={description}
               setState={setDescription}
+              isLastField
             />
           </div>
 
@@ -140,6 +157,7 @@ const Publish = ({ token }) => {
               placeholder="ex: France"
               state={city}
               setState={setCity}
+              isLastField
             />
           </div>
           <div className="publish-box-form publish-form-price">
@@ -148,9 +166,23 @@ const Publish = ({ token }) => {
               placeholder="0,00 €"
               state={price}
               setState={setPrice}
+              isLastField
             />
+            <div className="publish-checkbox-wrapper">
+              <input
+                className="changes-checkbox"
+                type="checkbox"
+                id="changes-checkbox"
+                name="changes-checkbox"
+              />
+              <label htmlFor="changes-checkbox">
+                Je suis intéressé(e) par les échanges
+              </label>
+            </div>
           </div>
-          <input className="submit" type="submit" value="Publier l'offre" />
+          <div className="publish-submit-wrapper">
+            <input className="publish-submit" type="submit" value="Ajouter" />
+          </div>
         </form>
       </div>
     </div>
