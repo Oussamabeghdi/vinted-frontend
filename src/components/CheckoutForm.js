@@ -48,8 +48,6 @@ const CheckoutForm = ({ product_name, product_price }) => {
     <form
       style={{
         gap: "20px",
-        width: "400px",
-        height: "300px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -62,7 +60,11 @@ const CheckoutForm = ({ product_name, product_price }) => {
       {paymentStatus === 2 ? (
         <p>Paiement effectué</p>
       ) : (
-        <button disabled={paymentStatus === 1} type="submit">
+        <button
+          className="to-paid"
+          disabled={paymentStatus === 1}
+          type="submit"
+        >
           Payer
         </button>
       )}
