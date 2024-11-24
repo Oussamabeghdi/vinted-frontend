@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import { useNavigate } from "react-router-dom";
 import "../styles/components/Header.css";
+import Logo from "../assets/img/logovinted.png";
 
 const Header = ({ handleTokenAndId, token, search, setSearch }) => {
   // const token = Cookies.get("token-vinted");
@@ -10,10 +11,7 @@ const Header = ({ handleTokenAndId, token, search, setSearch }) => {
     <header>
       <div className="header">
         <Link to="/">
-          <img
-            src="https://lereacteur-vinted.netlify.app/static/media/logo.10b0caad793dd0a8ea72.png"
-            alt=""
-          />
+          <img src={Logo} alt="" />
         </Link>
         <div className="inputsearch-slider">
           <SearchBar search={search} setSearch={setSearch} />

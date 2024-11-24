@@ -29,7 +29,7 @@ const CheckoutForm = ({ product_name, product_price }) => {
         "https://site--vinted-backend--9gtnl5qyn2yw.code.run/payment",
         {
           stripeToken: stripeToken,
-          // le token que vous avez reçu de l'API Stripe
+          // le token que je recois  de l'API Stripe
           title: product_name,
           amount: product_price,
           // le prix indiquée dans l'annonce
@@ -61,17 +61,11 @@ const CheckoutForm = ({ product_name, product_price }) => {
       {paymentStatus === 2 ? (
         <p>Paiement effectué</p>
       ) : (
-        <button
-          className="to-paid"
-          disabled={paymentStatus === 1}
-          type="submit"
-        >
+        <button className="to-paid" disabled={paymentStatus === 1} type="submit">
           Payer
         </button>
       )}
-      {paymentStatus === 3 && (
-        <p>Une erreur est survenue, veuillez réessayer : </p>
-      )}
+      {paymentStatus === 3 && <p>Une erreur est survenue, veuillez réessayer : </p>}
     </form>
   );
 };
