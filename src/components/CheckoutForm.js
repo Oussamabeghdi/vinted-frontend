@@ -12,7 +12,7 @@ const CheckoutForm = ({ product_name, product_price }) => {
   const elements = useElements();
 
   const userId = Cookies.get("id-vinted");
-  console.log(userId + "coucou");
+  // console.log(userId);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -32,7 +32,7 @@ const CheckoutForm = ({ product_name, product_price }) => {
           stripeToken: stripeToken,
           // le token que je recois  de l'API Stripe
           title: product_name,
-          amount: product_price * 100,
+          amount: product_price,
           // le prix indiquée dans l'annonce
         }
       );
