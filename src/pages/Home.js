@@ -13,8 +13,7 @@ const Home = ({ search, token }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          // "http://localhost:3000/offers"
-          // `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
+          // `http://localhost:3000/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
           `https://site--vinted-backend--9gtnl5qyn2yw.code.run/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
         );
         setData(response.data);
@@ -32,9 +31,7 @@ const Home = ({ search, token }) => {
     <section>
       <div className="home-wrapper">
         <div className="home-info">
-          <p className="home-title-info">
-            Prêts à faire du tri dans vos placards ?
-          </p>
+          <p className="home-title-info">Prêts à faire du tri dans vos placards ?</p>
           <Link to={token ? "/publish" : "login"} className="home-button">
             Commencer à vendre
           </Link>

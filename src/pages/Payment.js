@@ -51,17 +51,13 @@ const Payment = ({ token }) => {
         </div>
         <div className="payment-step">
           Il ne vous reste plus qu'une étape pour vous offrir
-          <span className="payment-bold"> {product_name} </span>. Vous allez
-          payer
-          <span className="payment-bold"> {totalPrice} € </span> (frais de
-          protection et frais de port inclus).
+          <span className="payment-bold"> {product_name} </span>. Vous allez payer
+          <span className="payment-bold"> {totalPrice} € </span> (frais de protection et frais de
+          port inclus).
         </div>
         <div className="divider"></div>
         <Elements stripe={stripePromise}>
-          <CheckoutForm
-            product_name={product_name}
-            product_price={product_price}
-          />
+          <CheckoutForm product_name={product_name} product_price={totalPrice} />
         </Elements>
       </div>
     </div>

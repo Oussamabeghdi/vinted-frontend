@@ -3,6 +3,7 @@ import SearchBar from "./SearchBar";
 import { useNavigate } from "react-router-dom";
 import "../styles/components/Header.css";
 import Logo from "../assets/img/logovinted.png";
+// import SuperSimple from "./Slider";
 
 const Header = ({ handleTokenAndId, token, search, setSearch }) => {
   // const token = Cookies.get("token-vinted");
@@ -16,6 +17,7 @@ const Header = ({ handleTokenAndId, token, search, setSearch }) => {
         <div className="inputsearch-slider">
           <SearchBar search={search} setSearch={setSearch} />
         </div>
+        {/* <SuperSimple /> */}
 
         {/* Si le token existe on affiche deconnexion sinon s'inscrire et se connecter */}
         {token ? (

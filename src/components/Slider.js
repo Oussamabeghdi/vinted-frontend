@@ -75,6 +75,10 @@ class SuperSimple extends React.Component {
             >
               <div
                 style={{
+                  height: "10px",
+                  width: "10px",
+                  borderRadius: "50%",
+
                   backgroundColor: isDragged ? "#2db1ba" : "#CCC",
                 }}
               />

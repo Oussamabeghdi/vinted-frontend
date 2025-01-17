@@ -16,7 +16,6 @@ const Offer = ({ token }) => {
       try {
         const response = await axios.get(
           // `http://localhost:3000/offer/${id}`
-          // `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
           `https://site--vinted-backend--9gtnl5qyn2yw.code.run/offer/${id}`
         );
         setData(response.data);
@@ -32,11 +31,7 @@ const Offer = ({ token }) => {
     <p>Loading...</p>
   ) : (
     <section className="offer-wrapper">
-      <img
-        className="offer-image"
-        src={data?.product_image?.secure_url}
-        alt="product"
-      />
+      <img className="offer-image" src={data?.product_image?.secure_url} alt="product" />
       <div className="offer-details-wrapper">
         <p className="offer-price">{data?.product_price} €</p>
         {/* Je parcours product_details */}

@@ -24,7 +24,6 @@ const Signup = ({ handleTokenAndId }) => {
     setErrorMessage("");
     try {
       const response = await axios.post(
-        // "https://lereacteur-vinted-api.herokuapp.com/user/signup",
         "https://site--vinted-backend--9gtnl5qyn2yw.code.run/user/signup",
         // "http://localhost:3000/user/signup",
 
@@ -48,9 +47,7 @@ const Signup = ({ handleTokenAndId }) => {
       console.log(error.response.data);
       console.log(error.response.status);
       if (error.response.data.message === "email already used") {
-        setErrorMessage(
-          "Cet email est déjà utilisé veuillez créer un email valide"
-        );
+        setErrorMessage("Cet email est déjà utilisé veuillez créer un email valide");
       }
       if (error.response.data.message === "missing parameters") {
         setErrorMessage("Veuillez remplir tous les champs svp");

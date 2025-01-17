@@ -8,6 +8,7 @@ import { Trash } from "../assets/svg/Trash";
 
 const Publish = ({ token }) => {
   const navigate = useNavigate();
+  console.log("ceci et le token :" + token);
 
   const [pictures, setPictures] = useState([]);
   const [title, setTitle] = useState("");
@@ -48,15 +49,14 @@ const Publish = ({ token }) => {
       formData.append("color", color);
       pictures.forEach((picture) => {
         formData.append("picture", picture);
+        console.log(picture);
       });
 
       const response = await axios.post(
         // "http://localhost:3000/offer/publish",
 
-        // "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
-
         "https://site--vinted-backend--9gtnl5qyn2yw.code.run/offer/publish",
-
+        //
         formData,
         {
           headers: {
@@ -86,11 +86,7 @@ const Publish = ({ token }) => {
                 <div>
                   {pictures.map((file) => (
                     <div className="publish-picture-wrapper" key={file.name}>
-                      <img
-                        className="publish-picture"
-                        src={file.preview}
-                        alt="preview"
-                      />
+                      <img className="publish-picture" src={file.preview} alt="preview" />
                       <div className="publish-footer-picture">
                         <p>{file.name}</p>
                         <Trash onClick={resetPicturesData} size={20} />
@@ -175,9 +171,7 @@ const Publish = ({ token }) => {
                 id="changes-checkbox"
                 name="changes-checkbox"
               />
-              <label htmlFor="changes-checkbox">
-                Je suis intéressé(e) par les échanges
-              </label>
+              <label htmlFor="changes-checkbox">Je suis intéressé(e) par les échanges</label>
             </div>
           </div>
           <div className="publish-submit-wrapper">
