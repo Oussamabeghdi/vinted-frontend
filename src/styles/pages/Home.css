@@ -79,7 +79,9 @@
     gap: 90px;
   }
   .home-wrapper {
-    height: 400px;
+    /* height: 400px; */
+    height: 60vh;
+    background-position: right;
     display: flex;
     flex-direction: column;
   }
@@ -87,7 +89,7 @@
   .home-info {
     display: flex;
     flex-direction: column;
-    margin: 400px 0 0 0;
+    margin: 220px 0 0 0;
     width: 100%;
     gap: 20px;
   }
