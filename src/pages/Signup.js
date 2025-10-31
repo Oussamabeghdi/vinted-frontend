@@ -24,7 +24,8 @@ const Signup = ({ handleTokenAndId }) => {
     setErrorMessage("");
     try {
       const response = await axios.post(
-        "https://site--vinted-backend--9gtnl5qyn2yw.code.run/user/signup",
+        // "https://site--vinted-backend--9gtnl5qyn2yw.code.run/user/signup",
+        "https://vinted-backend-55n7.onrender.com/user/signup",
         // "http://localhost:3000/user/signup",
 
         {

@@ -16,7 +16,8 @@ const Offer = ({ token }) => {
       try {
         const response = await axios.get(
           // `http://localhost:3000/offer/${id}`
-          `https://site--vinted-backend--9gtnl5qyn2yw.code.run/offer/${id}`
+          // `https://site--vinted-backend--9gtnl5qyn2yw.code.run/offer/${id}`
+          `https://vinted-backend-55n7.onrender.com/offer/${id}`
         );
         setData(response.data);
         setIsLoading(false);

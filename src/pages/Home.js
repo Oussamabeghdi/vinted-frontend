@@ -15,7 +15,8 @@ const Home = ({ search, token }) => {
 
         const response = await axios.get(
           // `http://localhost:3000/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
-          `https://site--vinted-backend--9gtnl5qyn2yw.code.run/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
+          // `https://site--vinted-backend--9gtnl5qyn2yw.code.run/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
+          `https://vinted-backend-55n7.onrender.com/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
           //
         );
         console.log("Response received : ", response.data);
