@@ -63,14 +63,14 @@
     display: none;
   }
   .publish-login-btn-container.open {
-    height: 600px;
+    height: 300px;
     width: 300px;
     display: flex;
     /* justify-content: center; */
     align-items: center;
     padding: 20px 0;
     background: #fefefedd;
-    gap: 10px;
+    gap: 30px;
   }
   .publish-login-btn-container {
     display: none;

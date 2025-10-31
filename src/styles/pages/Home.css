@@ -3,7 +3,7 @@
   max-width: 1200px; /* limite la largeur sur grand écran */
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 0 16px;
+  padding: 6px 16px;
 }
 
 .home-wrapper {
@@ -108,5 +108,6 @@
 @media (max-width: 600px) {
   .cards-wrapper {
     grid-template-columns: 1fr;
+    margin-top: 20px;
   }
 }

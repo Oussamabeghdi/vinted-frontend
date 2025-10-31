@@ -25,9 +25,10 @@
 .image-offer {
   border-radius: 15px;
   border: 1px solid black;
-  height: 360px;
-  width: 235px;
-  object-fit: cover;
+  height: 250px;
+  width: 250px;
+  object-fit: contain;
+  object-position: center;
 }
 
 .card-footer {
