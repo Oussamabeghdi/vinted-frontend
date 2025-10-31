@@ -1,8 +1,9 @@
 .payment-wrapper {
   display: flex;
   justify-content: center;
-  height: calc(100vh - 80px);
+  /* height: calc(100vh - 80px); */
   background-color: #ebedee;
+  padding: 0 10px 10px 10px;
 }
 
 .payment-content {
@@ -60,4 +61,15 @@
   height: 32px;
   margin-top: 50px;
   cursor: pointer;
+}
+@media (max-width: 926px) {
+  .payment-wrapper {
+    height: auto;
+    padding: 10px;
+  }
+  .payment-content {
+    width: 100%;
+    padding: 30px;
+    margin: 0;
+  }
 }

@@ -1,4 +1,6 @@
-// import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram, faFacebook, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+
 import "../styles/components/Footer.css";
 const Footer = () => {
   return (
@@ -34,18 +36,24 @@ const Footer = () => {
       </div>
       <section className="social-media">
         <div className="social-media-icon">
-          <div>Insta</div>
-          <div>Facebook</div>
-          <div>Linkdin</div>
+          <div>
+            <FontAwesomeIcon icon={faInstagram} />
+          </div>
+          <div>
+            <FontAwesomeIcon icon={faFacebook} />
+          </div>
+          <div>
+            <FontAwesomeIcon icon={faLinkedin} />
+          </div>
         </div>
         <div className="app-google-store-container">
           <div className="app-google-store">
-            <button className="app-store-button" type="button">
+            {/* <button className="app-store-button" type="button">
               App-store
             </button>
             <button className="google-play-button" type="button">
               Google-play
-            </button>
+            </button> */}
           </div>
         </div>
       </section>
