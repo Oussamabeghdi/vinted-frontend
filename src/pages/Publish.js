@@ -24,7 +24,7 @@ const Publish = ({ token }) => {
 
   const onDrop = useCallback((acceptedFiles) => {
     setPictures(
-      acceptedFiles.map((file) =>
+      acceptedFiles?.map((file) =>
         Object.assign(file, {
           preview: URL.createObjectURL(file),
         })
@@ -56,7 +56,7 @@ const Publish = ({ token }) => {
         // "http://localhost:3000/offer/publish",
 
         "https://site--vinted-backend--9gtnl5qyn2yw.code.run/offer/publish",
-        //
+
         formData,
         {
           headers: {

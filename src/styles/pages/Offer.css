@@ -2,13 +2,15 @@
   padding: 30px 0 0 0;
   min-height: calc(100vh - 80px);
   background-color: #ebedee;
+  background: white;
   display: flex;
   justify-content: space-evenly;
 }
 
 .offer-image {
-  height: 600px;
-  width: 600px;
+  height: 400px;
+  width: 400px;
+  /* height: 50vh; */
 }
 
 .divider {
@@ -84,10 +86,26 @@
   height: 40px;
   width: 100%;
   background-color: #09b1ba;
+  border: none;
+  color: white;
   border-radius: 5px;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .buy-button span {
   color: white;
+}
+@media (max-width: 1000px) {
+  .offer-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .offer-image {
+    height: 300px;
+    width: 300px;
+  }
+  .offer-details {
+    width: 100%;
+  }
 }

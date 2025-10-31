@@ -3,32 +3,43 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  /* max-width: 600px; */
 }
-
 .searchBar {
+  width: 600px;
+  width: 100%;
+  /* flex: 1; */
   border: none;
   border-radius: 5px;
-  width: 600px;
-  height: 40px;
-
-  margin-left: 10px;
+  height: 30px;
   background-color: #f5f6f7;
   padding-left: 1.8rem;
+  box-shadow: #919696;
+  /* display: flex; */
+  /* flex: 1 1; */
+}
+.searchBar {
+  /* flex: 1 1; */
 }
 input[type="text"] {
   outline: none;
 }
 
 .searchBar::placeholder {
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: 1px;
-  font-weight: 100;
-  color: #e2e4e5;
+  /* font-weight: 100; */
+  color: #919696;
 }
 
 .fa-solid {
   position: absolute;
-  left: 20px;
+  left: 10px;
   font-size: 15px;
   color: #a9adae;
 }
+/* @media (max-width: 926px) {
+  .searchBar {
+    width: 100%;
+  }
+} */

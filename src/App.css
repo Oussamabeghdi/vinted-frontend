@@ -1,10 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+html,
+body {
+  overflow-x: hidden;
+}
 * {
   box-sizing: border-box;
   text-decoration: none;
 }
 body {
   font-family: "Roboto";
+  box-sizing: border-box;
+  padding: 5px;
+  /* margin: 0 auto; */
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  /* min-height: 100vh; */
+  /* max-width: 1200px; */
+  width: 100%;
+  overflow-x: hidden; /* évite le scroll horizontal s’il reste un dépassement */
+
+  /* display: grid;
+  place-items: center; */
 }
 
 .modal {
@@ -15,6 +33,8 @@ body {
 
 .App {
   position: relative;
+
+  width: 100%;
 }
 .modal-root {
   color: red;

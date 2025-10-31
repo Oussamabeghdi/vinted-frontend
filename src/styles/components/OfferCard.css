@@ -1,5 +1,6 @@
 .card-wrapper {
   display: flex;
+  align-items: center;
   flex-direction: column;
 }
 
@@ -22,6 +23,8 @@
 }
 
 .image-offer {
+  border-radius: 15px;
+  border: 1px solid black;
   height: 360px;
   width: 235px;
   object-fit: cover;
@@ -36,4 +39,9 @@
 .card-price {
   color: black;
   font-size: 20px;
+}
+@media (max-width: 720px) {
+  .card-header {
+    margin-top: 93px;
+  }
 }

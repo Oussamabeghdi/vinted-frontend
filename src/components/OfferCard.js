@@ -4,7 +4,7 @@ import "../styles/components/OfferCard.css";
 
 const OfferCard = ({ offerInfos }) => {
   const account = useMemo(() => offerInfos?.owner?.account, [offerInfos]);
-  console.log(offerInfos, "");
+  // console.log(offerInfos, "");
   return (
     <article className="card-wrapper">
       <div className="card-header">
@@ -16,11 +16,7 @@ const OfferCard = ({ offerInfos }) => {
         <p className="card-username">{offerInfos?.username}</p>
       </div>
       <Link className="card-details-link" to={`/offer/${offerInfos._id}`}>
-        <img
-          className="image-offer"
-          src={offerInfos.product_image.secure_url}
-          alt="product"
-        />
+        <img className="image-offer" src={offerInfos.product_image.secure_url} alt="product" />
         <div className="card-footer">
           <p className="card-price">{offerInfos.product_price} € </p>
           {/* je parcours product_details */}

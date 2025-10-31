@@ -16,7 +16,7 @@ import Publish from "./pages/Publish";
 //component
 import Header from "./components/Header";
 // import Modal from "./components/Modal";
-// import Footer from "./components/Footer";
+import Footer from "./components/Footer";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 library.add(faMagnifyingGlass);
@@ -62,8 +62,7 @@ function App() {
         <Route path="/publish" element={<Publish token={token} />} />
         <Route path="/payment" element={<Payment token={token} />} />
       </Routes>
-      {/* <Footer visible={visible} setVisible={setVisible} />
-      {visible && <Modal setVisible={setVisible} />} */}
+      <Footer />
     </Router>
   );
 }

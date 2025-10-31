@@ -1,6 +1,9 @@
 .publish-wrapper {
   display: flex;
+  align-items: center;
   justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
   min-height: calc(100vh - 80px);
   background: #ebedee;
 }
@@ -125,7 +128,7 @@
 }
 
 .publish-submit {
-  width: 6%;
+  width: 100%;
   height: 40px;
   background: #0ab1ba;
   color: white;

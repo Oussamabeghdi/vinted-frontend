@@ -54,9 +54,9 @@ const Offer = ({ token }) => {
           <p className="offer-infos-description">{data?.product_description}</p>
           <p className="offer-infos-username">{data?.owner.account.username}</p>
         </div>
-        <div className="buy-button">
+        <div>
           <Link to={token ? "/payment" : "/login"} state={token ? data : null}>
-            <span>Acheter</span>
+            <button className="buy-button">Acheter</button>
           </Link>
         </div>
       </div>
