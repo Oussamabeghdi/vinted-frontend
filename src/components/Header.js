@@ -73,7 +73,7 @@ const Header = ({ handleTokenAndId, token, search, setSearch }) => {
       </div>
       <div className="menu-mobile">
         <button style={{ border: "none" }} className="menu-toggle" onClick={toggleMenu}>
-          <FontAwesomeIcon icon={faBars} />{" "}
+          <FontAwesomeIcon icon={faBars} size="2x" />{" "}
         </button>
       </div>
     </div>

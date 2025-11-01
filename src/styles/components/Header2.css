@@ -53,7 +53,6 @@
 
 .menu-mobile {
   display: none;
-  font-size: 24px;
   cursor: pointer;
 }
 
@@ -96,8 +95,7 @@
   }
 
   .menu-mobile {
-    display: flex;
-    height: 25px;
+    display: block;
   }
 }
 
@@ -105,11 +103,6 @@
 @media (max-width: 926px) {
   .publish-login-btn-container {
     display: none;
-  }
-
-  .menu-mobile {
-    display: block;
-    display: flex;
   }
 }
 @media (max-width: 800px) {
