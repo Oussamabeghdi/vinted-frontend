@@ -9,7 +9,7 @@
 
 .offer-image {
   height: 400px;
-  width: 400px;
+  max-width: 400px;
   /* height: 50vh; */
 }
 
@@ -27,7 +27,7 @@
   gap: 30px;
   background-color: white;
   width: 300px;
-  height: 600px;
+  height: auto;
   flex: 0 0 455px;
   box-sizing: border-box;
 }
@@ -78,8 +78,14 @@
 .offer-infos-username {
   font-size: 14px;
 }
+.cart-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-.buy-button {
+.buy-button,
+.continue-shopping-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,8 +108,8 @@
     align-items: center;
   }
   .offer-image {
-    height: 300px;
-    width: 300px;
+    height: auto;
+    width: 90%;
   }
   .offer-details {
     width: 100%;

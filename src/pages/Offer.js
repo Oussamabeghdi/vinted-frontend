@@ -55,9 +55,12 @@ const Offer = ({ token }) => {
           <p className="offer-infos-description">{data?.product_description}</p>
           <p className="offer-infos-username">{data?.owner.account.username}</p>
         </div>
-        <div>
+        <div className="cart-buttons">
           <Link to={token ? "/payment" : "/login"} state={token ? data : null}>
             <button className="buy-button">Acheter</button>
+          </Link>
+          <Link to="/">
+            <button className="continue-shopping-btn">Continuer vos achats</button>
           </Link>
         </div>
       </div>

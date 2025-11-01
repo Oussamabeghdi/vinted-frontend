@@ -76,14 +76,13 @@
 
 @media (max-width: 926px) {
   .home-wrapper-container {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 90px;
-    height: auto;
+    height: auto; */
   }
   .home-wrapper {
-    display: flex;
     flex-direction: column;
     background-position: center;
     height: 60dvh;
@@ -96,7 +95,7 @@
   .home-info {
     padding: 44px 0 20px 0;
     text-align: center;
-    margin: 220px 0 0 0;
+    margin: 480px 0 0 0;
     height: auto;
     width: 90%;
     max-width: 400px;
@@ -120,7 +119,6 @@
     height: auto;
   }
   .home-wrapper {
-    display: flex;
     flex-direction: column;
     background-position: center;
     height: 60dvh;
