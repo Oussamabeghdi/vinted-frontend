@@ -90,12 +90,12 @@
   }
 
   .home-tear {
-    /* display: none; */
+    display: none;
   }
   .home-info {
     padding: 44px 0 20px 0;
     text-align: center;
-    margin: 480px 0 0 0;
+    margin: 466px 0 0 0;
     height: auto;
     width: 90%;
     max-width: 400px;
