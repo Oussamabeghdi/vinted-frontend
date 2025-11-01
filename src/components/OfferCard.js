@@ -9,7 +9,7 @@ const OfferCard = ({ offerInfos }) => {
     <article className="card-wrapper">
       <div className="card-header">
         {account?.avatar &&
-          ((<img src={account.avatar?.secure_url} alt="owner" />),
+          ((<img src={account.avatar?.secure_url} alt="owner" loading="lazy" />),
           console.log(offerInfos.username))}
         <p className="card-username">{offerInfos?.username}</p>
       </div>

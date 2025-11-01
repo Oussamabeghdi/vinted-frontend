@@ -24,11 +24,13 @@
 
 .image-offer {
   border-radius: 15px;
-  border: 1px solid black;
+  border: 1px solid #dbdada;
   height: 250px;
   width: 250px;
   object-fit: contain;
   object-position: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
 }
 
 .card-footer {

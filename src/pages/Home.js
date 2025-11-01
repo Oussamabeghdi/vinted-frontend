@@ -11,7 +11,7 @@ const Home = ({ search, token }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log("fetching data ...");
+        // console.log("fetching data ...");
 
         const response = await axios.get(
           // `http://localhost:3000/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
@@ -19,7 +19,7 @@ const Home = ({ search, token }) => {
           `https://vinted-backend-55n7.onrender.com/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
           //
         );
-        console.log("Response received : ", response.data);
+        // console.log("Response received : ", response.data);
         setData(response.data);
         // console.log(`ceci est la data : ${JSON.stringify(data, null, 2)} `);
 
@@ -36,14 +36,14 @@ const Home = ({ search, token }) => {
   ) : (
     <section className="home-wrapper-container">
       <div className="home-wrapper">
+        <div className="home-tear">
+          <TearSvg />
+        </div>
         <div className="home-info">
           <h1 className="home-title-info">Prêts à faire du tri dans vos placards?</h1>
           <Link to={token ? "/publish" : "login"} className="home-button">
             Commencer à vendre
           </Link>
-        </div>
-        <div className="home-tear">
-          <TearSvg />
         </div>
       </div>
       <div className="cards-wrapper">
@@ -52,7 +52,7 @@ const Home = ({ search, token }) => {
             return <OfferCard offerInfos={offer} key={offer._id} />;
           })
         ) : (
-          <p>Aucun produit touvé correspondant</p>
+          <p>Aucun produit trouvé correspondant</p>
         )}
       </div>
     </section>
