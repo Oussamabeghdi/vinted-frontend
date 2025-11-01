@@ -8,7 +8,7 @@ import { Trash } from "../assets/svg/Trash";
 
 const Publish = ({ token }) => {
   const navigate = useNavigate();
-  console.log("ceci et le token :" + token);
+  // console.log("ceci et le token :" + token);
 
   const [pictures, setPictures] = useState([]);
   const [title, setTitle] = useState("");
@@ -32,7 +32,6 @@ const Publish = ({ token }) => {
     );
   }, []);
 
-  // on récupère les props de la fonction useDropzone
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
   const handleSubmit = async (event) => {
@@ -52,7 +51,7 @@ const Publish = ({ token }) => {
         console.log(picture);
       });
 
-      const response = await axios.post(
+      await axios.post(
         // "http://localhost:3000/offer/publish",
 
         // "https://site--vinted-backend--9gtnl5qyn2yw.code.run/offer/publish",
@@ -69,7 +68,7 @@ const Publish = ({ token }) => {
 
       navigate("/");
 
-      // console.log(response.data);
+      alert("Votre annonce a bien été publiée !");
     } catch (error) {
       console.log(error.response.data);
     }
