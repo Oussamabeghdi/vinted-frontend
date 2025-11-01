@@ -83,15 +83,15 @@
     height: auto;
   }
   .home-wrapper {
-    height: 60vh;
-
-    background-position: center;
     display: flex;
     flex-direction: column;
+    background-position: center;
+    height: 60dvh;
+    height: 60vh;
   }
 
   .home-tear {
-    display: none;
+    /* display: none; */
   }
   .home-info {
     padding: 44px 0 20px 0;
