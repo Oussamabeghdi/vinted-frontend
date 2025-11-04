@@ -77,7 +77,7 @@
 
 @media (max-width: 926px) {
   .home-wrapper {
-    background: url("/Users/oussama/andromeda23/Module react/vinted-home/src/assets/img/hugo-clement-JGtPrdnMgQc-unsplash (1).jpg");
+    background: url("/src/assets/img/hugo-clement-JGtPrdnMgQc-unsplash\ \(1\).jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
