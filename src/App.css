@@ -49,5 +49,13 @@ body {
   justify-content: center;
   align-items: center;
 }
+button {
+  border-radius: 6px;
+}
+button:hover {
+  color: #56bfc7;
+  background: rgb(227, 227, 227);
+  border: 1px solid gainsboro;
+}
 
 /*-------- Vends ton article ----------*/

@@ -1,14 +1,17 @@
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 import Cookies from "js-cookie";
+import "../styles/components/CheckOutForm.css";
 
-const CheckoutForm = ({ product_name, product_price }) => {
+const CheckoutForm = ({ token, product_name, product_price }) => {
   const [paymentStatus, setPaymentStatus] = useState(0);
-
+  const { cart, clearCart } = useContext(CartContext);
   const stripe = useStripe();
   const elements = useElements();
-
+  const navigate = useNavigate();
   const userId = Cookies.get("id-vinted");
 
   const handleSubmit = async (event) => {
@@ -22,25 +25,36 @@ const CheckoutForm = ({ product_name, product_price }) => {
         name: userId,
       });
       const stripeToken = stripeResponse.token.id;
-      // console.log("stripeToken :" + stripeToken);
 
       const response = await axios.post(
         // "http://localhost:3000/payment",
-        // "https://site--vinted-backend--9gtnl5qyn2yw.code.run/payment",
         "https://vinted-backend-55n7.onrender.com/payment",
         {
           stripeToken: stripeToken,
           title: product_name,
-          amount: product_price * 100,
+          amount: Math.round(product_price * 100),
+          items: cart,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
       );
 
-      if (response.data.status === "succeeded") {
+      if (response.data.success) {
         setPaymentStatus(2);
+
+        setTimeout(() => {
+          clearCart();
+          navigate("/");
+        }, 2500);
+      } else {
+        setPaymentStatus(3);
       }
     } catch (error) {
-      setPaymentStatus(3);
       console.log(error.message);
+      setPaymentStatus(3);
     }
   };
 
@@ -58,13 +72,14 @@ const CheckoutForm = ({ product_name, product_price }) => {
       <CardElement />
 
       {paymentStatus === 2 ? (
-        <div>
+        <div className="message-success">
           <p>Paiement effectué</p>
           <p>{`Vous avez été débité de ${product_price}€`} </p>
+          <Link to="/">Retourner à l'accueil</Link>
         </div>
       ) : (
         <button className="to-paid" disabled={paymentStatus === 1} type="submit">
-          Payer
+          {paymentStatus === 1 ? "Paiement en cours..." : "Payer"}
         </button>
       )}
       {paymentStatus === 3 && <p>Une erreur est survenue, veuillez réessayer : </p> && (

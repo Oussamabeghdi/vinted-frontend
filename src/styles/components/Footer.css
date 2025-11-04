@@ -3,9 +3,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 15px 5px;
-  height: 300px;
   /* background: rgb(85, 211, 150); */
   width: 100%;
+  height: auto;
   border-top: 1px solid grey;
 }
 .column-links-ft {
@@ -13,6 +13,10 @@
   flex-direction: column;
   gap: 20px;
   padding: 0 0 0 30px;
+}
+.column-links-ft h3 {
+  font-weight: 600;
+  margin-top: 10px;
 }
 .footer-wrapper ul {
   display: flex;
@@ -49,4 +53,12 @@
   margin-left: 20px;
   background: black;
   color: white;
+}
+@media (max-width: 600px) {
+  .footer-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+  }
 }

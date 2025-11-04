@@ -11,18 +11,13 @@ const Home = ({ search, token }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // console.log("fetching data ...");
-
         const response = await axios.get(
           // `http://localhost:3000/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
-          // `https://site--vinted-backend--9gtnl5qyn2yw.code.run/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
-          `https://vinted-backend-55n7.onrender.com/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
-          //
+          //?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc
+          `https://vinted-backend-55n7.onrender.com/offers`
         );
-        // console.log("Response received : ", response.data);
-        setData(response.data);
-        // console.log(`ceci est la data : ${JSON.stringify(data, null, 2)} `);
 
+        setData(response.data);
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);

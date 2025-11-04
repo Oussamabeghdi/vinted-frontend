@@ -1,17 +1,19 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import SearchBar from "./SearchBar";
 import { useNavigate } from "react-router-dom";
 import "../styles/components/Header2.css";
 import Logo from "../assets/img/logovinted.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-
-// import SuperSimple from "./Slider";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 const Header = ({ handleTokenAndId, token, search, setSearch }) => {
   // const token = Cookies.get("token-vinted");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { cart } = useContext(CartContext);
 
   const navigate = useNavigate();
   const toggleMenu = () => {
@@ -30,22 +32,27 @@ const Header = ({ handleTokenAndId, token, search, setSearch }) => {
         <SearchBar search={search} setSearch={setSearch} />
       </div>
       <div className="nav-container">
+        <Link className="cart-hdr-link" to={token ? "/cart" : "/login"}>
+          <FontAwesomeIcon icon={faCartShopping} /> {cart?.length}
+        </Link>
         <div className={`publish-login-btn-container ${isMenuOpen ? "open" : ""}`}>
           {token ? (
-            <button
-              style={{
-                backgroundColor: "#C2175B",
-                color: "white",
-                border: "none",
-              }}
-              onClick={() => {
-                // Cookies.remove("token-vinted");
-                handleTokenAndId(null, null);
-                navigate("/");
-              }}
-            >
-              Se Déconnecter
-            </button>
+            <>
+              <button
+                style={{
+                  backgroundColor: "#C2175B",
+                  color: "white",
+                  border: "none",
+                }}
+                onClick={() => {
+                  // Cookies.remove("token-vinted");
+                  handleTokenAndId(null, null);
+                  navigate("/");
+                }}
+              >
+                Se Déconnecter
+              </button>
+            </>
           ) : (
             <>
               <Link to="/signup">
@@ -72,8 +79,8 @@ const Header = ({ handleTokenAndId, token, search, setSearch }) => {
         </div>
       </div>
       <div className="menu-mobile">
-        <button style={{ border: "none" }} className="menu-toggle" onClick={toggleMenu}>
-          <FontAwesomeIcon icon={faBars} size="2x" />{" "}
+        <button className="menu-toggle" onClick={toggleMenu}>
+          <FontAwesomeIcon icon={isMenuOpen ? faXmark : faBars} size="2x" />{" "}
         </button>
       </div>
     </div>

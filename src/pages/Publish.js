@@ -8,7 +8,6 @@ import { Trash } from "../assets/svg/Trash";
 
 const Publish = ({ token }) => {
   const navigate = useNavigate();
-  // console.log("ceci et le token :" + token);
 
   const [pictures, setPictures] = useState([]);
   const [title, setTitle] = useState("");
@@ -48,13 +47,10 @@ const Publish = ({ token }) => {
       formData.append("color", color);
       pictures.forEach((picture) => {
         formData.append("picture", picture);
-        console.log(picture);
       });
 
       await axios.post(
         // "http://localhost:3000/offer/publish",
-
-        // "https://site--vinted-backend--9gtnl5qyn2yw.code.run/offer/publish",
         "https://vinted-backend-55n7.onrender.com/offer/publish",
 
         formData,

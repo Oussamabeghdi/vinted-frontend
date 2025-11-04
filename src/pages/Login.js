@@ -4,7 +4,6 @@ import axios from "axios";
 import "../styles/pages/Login.css";
 
 const Login = ({ handleTokenAndId }) => {
-  // on crée deux state pour avoir acces en permanence aux valeur de nos input et pour recuperer ces valeurs on fait onchange et onclick pour le bouton se connecter
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -18,7 +17,6 @@ const Login = ({ handleTokenAndId }) => {
     try {
       const response = await axios.post(
         // "http://localhost:3000/user/login",
-        // " https://site--vinted-backend--9gtnl5qyn2yw.code.run/user/login",
         "https://vinted-backend-55n7.onrender.com/user/login",
         {
           email: email,
@@ -43,7 +41,6 @@ const Login = ({ handleTokenAndId }) => {
       }
     }
   };
-  // au niveau de la balise form on fait un onsubmit
   return (
     <div className="login-page">
       <form className="login-form">
