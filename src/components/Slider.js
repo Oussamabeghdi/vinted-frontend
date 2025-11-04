@@ -50,8 +50,6 @@ class SuperSimple extends React.Component {
                     min: MIN,
                     max: MAX,
                   }),
-                  // alignItems: "flex-end",
-                  // alignSelf: "baseline",
                 }}
               >
                 {children}
