@@ -48,7 +48,7 @@ const CheckoutForm = ({ token, product_name, product_price }) => {
         setTimeout(() => {
           clearCart();
           navigate("/");
-        }, 2500);
+        }, 5000);
       } else {
         setPaymentStatus(3);
       }
@@ -69,7 +69,14 @@ const CheckoutForm = ({ token, product_name, product_price }) => {
       onSubmit={handleSubmit}
     >
       <h1>Formulaire de paiement</h1>
-      <CardElement />
+      <div
+        style={{
+          opacity: paymentStatus === 2 ? 0.3 : 1,
+          pointerEvents: paymentStatus === 2 ? "none" : "auto",
+        }}
+      >
+        <CardElement />
+      </div>
 
       {paymentStatus === 2 ? (
         <div className="message-success">
