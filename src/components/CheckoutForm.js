@@ -19,7 +19,7 @@ const CheckoutForm = ({ token, product_name, product_price }) => {
     try {
       setPaymentStatus(1);
       const cardElement = elements.getElement(CardElement);
-      console.log("cardElement : " + cardElement);
+      // console.log("cardElement : " + cardElement);
 
       const stripeResponse = await stripe.createToken(cardElement, {
         name: userId,
@@ -27,8 +27,8 @@ const CheckoutForm = ({ token, product_name, product_price }) => {
       const stripeToken = stripeResponse.token.id;
 
       const response = await axios.post(
-        // "http://localhost:3000/payment",
-        "https://vinted-backend-55n7.onrender.com/payment",
+        "http://localhost:3000/payment",
+        // "https://vinted-backend-55n7.onrender.com/payment",
         {
           stripeToken: stripeToken,
           title: product_name,
@@ -80,8 +80,13 @@ const CheckoutForm = ({ token, product_name, product_price }) => {
 
       {paymentStatus === 2 ? (
         <div className="message-success">
-          <p>Paiement effectué</p>
+          <p>Paiement confirmé</p>
           <p>{`Vous avez été débité de ${product_price}€`} </p>
+          <p>Un email de confirmation vous a été envoyé.</p>
+          <p style={{ background: "#fff3cd", padding: "10px", borderRadius: "5px" }}>
+            💡 <strong>Astuce :</strong> Si vous ne trouvez pas l'email, vérifiez votre dossier spam
+            et marquez-le comme "Non spam"
+          </p>
           <Link to="/">Retourner à l'accueil</Link>
         </div>
       ) : (

@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import { CartProvider } from "./context/CartContext";
 
@@ -40,6 +40,17 @@ function App() {
       Cookies.remove("id-vinted");
     }
   };
+  // Dans ton App.jsx ou composant principal
+  useEffect(() => {
+    // Ping le serveur toutes les 10 minutes pour éviter le cold start
+    const keepAlive = setInterval(() => {
+      fetch("https://vinted-backend-55n7.onrender.com/ping").catch((err) =>
+        console.log("Ping failed:", err)
+      );
+    }, 10 * 60 * 1000); // 10 minutes
+
+    return () => clearInterval(keepAlive);
+  }, []);
 
   return (
     <Router>

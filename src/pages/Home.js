@@ -24,7 +24,7 @@ const Home = ({ search, token }) => {
       }
     };
     fetchData();
-  }, [search]);
+  }, []);
 
   return isLoading ? (
     <p style={{ padding: "10px" }}> Loading...</p>
