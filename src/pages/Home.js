@@ -18,13 +18,7 @@ const Home = ({ search, token, setSearch }) => {
           //
           `https://vinted-backend-55n7.onrender.com/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
         );
-        // on ne filtre qu’à partir de 3 lettres
         setData(response.data);
-        // const filteredData = data.filter((item) => {
-        //   if (search.length < 3) return true;
-        //   // vérifie que la recherche correspond (insensible à la casse)
-        //   return item.title.toLowerCase().includes(search.toLowerCase());
-        // });
 
         setIsLoading(false);
       } catch (error) {

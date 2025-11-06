@@ -64,7 +64,7 @@ function App() {
           setSearch={setSearch}
         />
         <Routes>
-          <Route path="/" element={<Home search={search} token={token} />} />
+          <Route path="/" element={<Home search={search} setSearch={setSearch} token={token} />} />
           <Route path="/offer/:id" element={<Offer token={token} />} />
           <Route path="/cart" element={<CartPage token={token} />} />
 
