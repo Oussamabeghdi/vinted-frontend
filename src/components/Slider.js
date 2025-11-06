@@ -92,6 +92,3 @@ class SuperSimple extends React.Component {
   }
 }
 export default SuperSimple;
-
-// const rootElement = document.getElementById("root");
-// ReactDOM.render(<App />, rootElement);

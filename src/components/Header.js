@@ -32,9 +32,12 @@ const Header = ({ handleTokenAndId, token, search, setSearch }) => {
         <SearchBar search={search} setSearch={setSearch} />
       </div>
       <div className="nav-container">
-        <Link className="cart-hdr-link" to={token ? "/cart" : "/login"}>
-          <FontAwesomeIcon icon={faCartShopping} /> {cart?.length}
-        </Link>
+        {token && (
+          <Link className="cart-hdr-link" to={token ? "/cart" : "/login"}>
+            <FontAwesomeIcon icon={token ? faCartShopping : null} />
+            {cart?.length}
+          </Link>
+        )}
         <div className={`publish-login-btn-container ${isMenuOpen ? "open" : ""}`}>
           {token ? (
             <>

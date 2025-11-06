@@ -96,13 +96,13 @@ const Offer = ({ token }) => {
                 key={item.id}
                 onClick={() => handleClick(item.id)}
               >
-                <span>{item.name}</span> - {item.price} €
+                <span>{item.name}</span> <span>{item.price} €</span>
                 <div className="remove-product-btn-wrapper">
                   <button
                     className="remove-product-btn-offer-page"
                     onClick={() => removeFromCart(item.id)}
                   >
-                    <Trash size="sm" />
+                    <Trash size={20} />
                   </button>
                 </div>
               </div>

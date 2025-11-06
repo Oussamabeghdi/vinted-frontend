@@ -1,8 +1,8 @@
 .footer-wrapper {
-  margin-top: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 15px 5px;
+  margin-top: 50px;
   /* background: rgb(85, 211, 150); */
   width: 100%;
   height: auto;

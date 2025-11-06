@@ -30,7 +30,7 @@ const CartPage = ({ token }) => {
               >
                 {item.name} - {item.price} €
                 <button className="remove-product-btn" onClick={() => removeFromCart(item.id)}>
-                  <Trash size="1x" />
+                  <Trash size={20} />
                 </button>
               </div>
             ))}

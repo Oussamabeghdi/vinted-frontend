@@ -1,7 +1,10 @@
 .card-wrapper {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
+  height: auto;
+  width: 250px;
 }
 
 .card-header {
@@ -33,7 +36,7 @@
   border: 1px solid #dbdada;
   border-bottom: none;
   height: 250px;
-  width: 250px;
+  max-width: 250px;
   object-fit: contain;
   object-position: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -50,8 +53,10 @@
   color: black;
   font-size: 20px;
 }
-@media (max-width: 720px) {
-  .card-header {
-    /* margin-top: 93px; */
+@media (max-width: 600px) {
+  .image-offer {
+    height: 200px;
+    width: 150px;
+    object-fit: contain;
   }
 }

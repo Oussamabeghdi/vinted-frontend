@@ -3,3 +3,9 @@
   flex-direction: column;
   gap: 20px;
 }
+@media (max-width: 500px) {
+  .cardElement {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}

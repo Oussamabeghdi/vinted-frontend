@@ -16,14 +16,14 @@ const Login = ({ handleTokenAndId }) => {
     // navigate("/");
     try {
       const response = await axios.post(
-        // "http://localhost:3000/user/login",
-        "https://vinted-backend-55n7.onrender.com/user/login",
+        "http://localhost:3000/user/login",
+        // "https://vinted-backend-55n7.onrender.com/user/login",
         {
           email: email,
           password: password,
         }
       );
-      console.log(response.data);
+      // console.log(response.data);
       if (response.data.token) {
         // Cookies.set("token-vinted", response.data.token, { expire: 14 });
         handleTokenAndId(response.data.token, response.data._id);
@@ -32,7 +32,7 @@ const Login = ({ handleTokenAndId }) => {
     } catch (error) {
       console.log(error.response.data);
 
-      if (error.response.data.message === "Unauthorized 1") {
+      if (error.response.data.message === "Unauthorized") {
         setErrorMessage("Votre email ou mot de passe est incorrect");
       }
 
@@ -49,7 +49,7 @@ const Login = ({ handleTokenAndId }) => {
         <input
           value={email}
           type="email"
-          placeholder="Adresse email"
+          placeholder="Email"
           onChange={(event) => {
             setEmail(event.target.value);
           }}

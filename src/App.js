@@ -14,6 +14,7 @@ import Publish from "./pages/Publish";
 import CartPage from "./pages/CartPage";
 
 //component
+import ScrollToTop from "./components/ScrollToTop";
 import Header from "./components/Header";
 // import Modal from "./components/Modal";
 import Footer from "./components/Footer";
@@ -40,9 +41,8 @@ function App() {
       Cookies.remove("id-vinted");
     }
   };
-  // Dans ton App.jsx ou composant principal
+
   useEffect(() => {
-    // Ping le serveur toutes les 10 minutes pour éviter le cold start
     const keepAlive = setInterval(() => {
       fetch("https://vinted-backend-55n7.onrender.com/ping").catch((err) =>
         console.log("Ping failed:", err)
@@ -55,6 +55,7 @@ function App() {
   return (
     <Router>
       <CartProvider>
+        <ScrollToTop />
         <Header
           search={search}
           id={id}

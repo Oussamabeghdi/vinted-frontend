@@ -18,14 +18,11 @@ const SearchBar = ({ search, setSearch }) => {
           className="searchBar"
           value={search}
           type="text"
-          placeholder="  Recherche des articles"
+          placeholder="Recherche des articles"
           onChange={handleChange}
         />
       </form>
-      <FontAwesomeIcon
-        className="fa-solid"
-        icon="fa-solid fa-magnifying-glass"
-      />
+      <FontAwesomeIcon className="fa-solid" icon="fa-solid fa-magnifying-glass" />
     </div>
   );
 };

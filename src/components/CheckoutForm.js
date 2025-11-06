@@ -70,9 +70,12 @@ const CheckoutForm = ({ token, product_name, product_price }) => {
     >
       <h1>Formulaire de paiement</h1>
       <div
+        className="cardElement"
         style={{
           opacity: paymentStatus === 2 ? 0.3 : 1,
           pointerEvents: paymentStatus === 2 ? "none" : "auto",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
         <CardElement />

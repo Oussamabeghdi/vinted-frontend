@@ -11,18 +11,8 @@ body {
   font-family: "Roboto";
   box-sizing: border-box;
   padding: 5px;
-  /* margin: 0 auto; */
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
-  /* min-height: 100vh; */
-  /* max-width: 1200px; */
   width: 100%;
-  overflow-x: hidden; /* évite le scroll horizontal s’il reste un dépassement */
-
-  /* display: grid;
-  place-items: center; */
+  min-height: 100vh;
 }
 
 .modal {
@@ -33,7 +23,6 @@ body {
 
 .App {
   position: relative;
-
   width: 100%;
 }
 .modal-root {
@@ -42,7 +31,6 @@ body {
   position: absolute;
   height: 100vh;
   width: 100vw;
-  /* Pour placer la modal tout en haut à gauche une fois en position relative */
   top: 0;
   left: 0;
   display: flex;
