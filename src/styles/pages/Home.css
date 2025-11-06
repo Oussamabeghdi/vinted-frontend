@@ -6,7 +6,9 @@
   padding: 6px 16px;
   background: rgba(238, 238, 238, 0.252);
 }
-
+.searchBar-mobile-display {
+  display: none;
+}
 .home-wrapper {
   position: relative;
   display: flex;
@@ -24,13 +26,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  /* width: 400px;*/
+
   height: 250px;
   width: 90%;
   max-width: 400px;
   background: white;
   box-sizing: border-box;
-  border-radius: 3px;
+  border-radius: 8px;
   /* box-shadow: 0 0 2px hsla(0, 0%, 7%, 0.24); */
 }
 
@@ -118,12 +120,16 @@
     margin-top: 40px;
   }
 }
-@media (max-width: 600px) {
+/* Gestion de la Barre de recherche */
+@media (max-width: 650px) {
+  .searchBar-mobile-display {
+    display: block;
+  }
   .home-wrapper-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 90px;
+    gap: 40px;
     height: auto;
   }
   .home-wrapper {
@@ -139,4 +145,6 @@
     width: 100%;
     box-sizing: border-box;
   }
+}
+@media (max-width: 600px) {
 }

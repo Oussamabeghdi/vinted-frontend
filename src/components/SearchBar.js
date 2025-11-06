@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SearchBar = ({ search, setSearch }) => {
   const handleSearch = (event) => {
-    // console.log("salut");
     event.preventDefault();
     setSearch(search);
   };
@@ -18,11 +17,11 @@ const SearchBar = ({ search, setSearch }) => {
           className="searchBar"
           value={search}
           type="text"
-          placeholder="Recherche des articles"
+          placeholder="Rechercher des articles"
           onChange={handleChange}
         />
+        <FontAwesomeIcon className="fa-solid" icon="fa-solid fa-magnifying-glass" />
       </form>
-      <FontAwesomeIcon className="fa-solid" icon="fa-solid fa-magnifying-glass" />
     </div>
   );
 };

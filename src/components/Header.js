@@ -9,6 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faUserXmark } from "@fortawesome/free-solid-svg-icons";
 
 const Header = ({ handleTokenAndId, token, search, setSearch }) => {
   // const token = Cookies.get("token-vinted");
@@ -20,11 +22,18 @@ const Header = ({ handleTokenAndId, token, search, setSearch }) => {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <div className="header">
+    <div className="header-wrapper">
       <div className="logo-link-toggle-menu-container">
         <div className="logo-link">
           <Link to="/">
             <img src={Logo} alt="logo Vinted" />
+          </Link>
+          <Link to={token ? "/" : "/login"}>
+            <FontAwesomeIcon
+              icon={token ? faUser : faUserXmark}
+              style={{ color: token ? "green" : "#cbcdceff" }}
+              size={20}
+            />
           </Link>
         </div>
       </div>
@@ -33,10 +42,12 @@ const Header = ({ handleTokenAndId, token, search, setSearch }) => {
       </div>
       <div className="nav-container">
         {token && (
-          <Link className="cart-hdr-link" to={token ? "/cart" : "/login"}>
-            <FontAwesomeIcon icon={token ? faCartShopping : null} />
-            {cart?.length}
-          </Link>
+          <>
+            <Link className="cart-hdr-link" to={token ? "/cart" : "/login"}>
+              <FontAwesomeIcon icon={token ? faCartShopping : null} />
+              {cart?.length}
+            </Link>
+          </>
         )}
         <div className={`publish-login-btn-container ${isMenuOpen ? "open" : ""}`}>
           {token ? (
@@ -67,6 +78,7 @@ const Header = ({ handleTokenAndId, token, search, setSearch }) => {
               </Link>
             </>
           )}
+
           <Link to={token ? "/publish" : "/login"}>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
