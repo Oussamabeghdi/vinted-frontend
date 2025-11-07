@@ -16,7 +16,7 @@ const Home = ({ search, token, setSearch }) => {
         const response = await axios.get(
           // `http://localhost:3000/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
           //
-          `https://vinted-backend-55n7.onrender.com/offers?title=${search}&priceMin=10&priceMax=500&page=1&sort=asc`
+          `https://vinted-backend-55n7.onrender.com/offers?title=${search}`
         );
         setData(response.data);
 
