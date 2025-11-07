@@ -3,7 +3,7 @@ import { useState, useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import SearchBar from "./SearchBar";
 import { useNavigate } from "react-router-dom";
-import "../styles/components/Header2.css";
+import "../styles/components/Header.css";
 import Logo from "../assets/img/logovinted.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -30,6 +30,7 @@ const Header = ({ handleTokenAndId, token, search, setSearch }) => {
           </Link>
           <Link to={token ? "/" : "/login"}>
             <FontAwesomeIcon
+              className="faUser"
               icon={token ? faUser : faUserXmark}
               style={{ color: token ? "green" : "#cbcdceff" }}
               size={20}
