@@ -33,6 +33,9 @@ const Signup = ({ handleTokenAndId }) => {
         handleTokenAndId(response.data.token, response.data._id);
 
         navigate("/");
+        alert(
+          "L'équipe vinted clone vous remercie pour votre inscription. Un e-mail vous a été envoyé. Si vous ne trouvez pas l'e-mail, vérifiez votre dossier spam."
+        );
       }
     } catch (error) {
       console.log(error.response.data);
