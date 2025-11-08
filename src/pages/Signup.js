@@ -19,8 +19,8 @@ const Signup = ({ handleTokenAndId }) => {
     setErrorMessage("");
     try {
       const response = await axios.post(
-        "https://vinted-backend-55n7.onrender.com/user/signup",
-        // "http://localhost:3000/user/signup",
+        // "https://vinted-backend-55n7.onrender.com/user/signup",
+        "http://localhost:3000/user/signup",
 
         {
           email: email,
@@ -33,9 +33,9 @@ const Signup = ({ handleTokenAndId }) => {
         handleTokenAndId(response.data.token, response.data._id);
 
         navigate("/");
-        alert(
-          "L'équipe vinted clone vous remercie pour votre inscription. Un e-mail vous a été envoyé. Si vous ne trouvez pas l'e-mail, vérifiez votre dossier spam."
-        );
+        // alert(
+        //   "L'équipe vinted clone vous remercie pour votre inscription. Un e-mail vous a été envoyé. Si vous ne trouvez pas l'e-mail, vérifiez votre dossier spam."
+        // );
       }
     } catch (error) {
       console.log(error.response.data);
