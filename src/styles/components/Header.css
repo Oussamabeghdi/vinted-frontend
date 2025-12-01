@@ -19,9 +19,8 @@
 }
 .logo-link img {
   object-fit: contain;
-  width: 73px;
-  height: 44px;
-  text-align: center;
+  /* width: 73px; */
+  height: 64px;
   vertical-align: top;
   display: inline-block;
   overflow: hidden;

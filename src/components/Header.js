@@ -4,7 +4,7 @@ import { CartContext } from "../context/CartContext";
 import SearchBar from "./SearchBar";
 import { useNavigate } from "react-router-dom";
 import "../styles/components/Header.css";
-import Logo from "../assets/img/logovinted.png";
+import Logo from "../assets/img/fake-vinted.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";

@@ -27,7 +27,6 @@ const CheckoutForm = ({ token, product_name, product_price }) => {
       const stripeToken = stripeResponse.token.id;
 
       const response = await axios.post(
-        // "http://localhost:3000/payment",
         "https://vinted-backend-55n7.onrender.com/payment",
         {
           stripeToken: stripeToken,
