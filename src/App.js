@@ -16,7 +16,6 @@ import CartPage from "./pages/CartPage";
 //component
 import ScrollToTop from "./components/ScrollToTop";
 import Header from "./components/Header";
-// import Modal from "./components/Modal";
 import Footer from "./components/Footer";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -25,7 +24,6 @@ library.add(faMagnifyingGlass);
 function App() {
   const [token, setToken] = useState(Cookies.get("token") || null);
   const [id, setId] = useState(Cookies.get("id-vinted") || null);
-  // const [cart, setCart] = useState([]);
   const [search, setSearch] = useState("");
 
   const handleTokenAndId = (token, id) => {

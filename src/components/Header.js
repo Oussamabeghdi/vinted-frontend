@@ -13,7 +13,6 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faUserXmark } from "@fortawesome/free-solid-svg-icons";
 
 const Header = ({ handleTokenAndId, token, search, setSearch }) => {
-  // const token = Cookies.get("token-vinted");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { cart } = useContext(CartContext);
 
@@ -103,66 +102,3 @@ const Header = ({ handleTokenAndId, token, search, setSearch }) => {
   );
 };
 export default Header;
-// import React, { useState } from "react";
-// import { Link, useNavigate } from "react-router-dom";
-// import SearchBar from "./SearchBar";
-// import "../styles/components/Header2.css";
-// import Logo from "../assets/img/logovinted.png";
-
-// const Header = ({ token, handleTokenAndId, search, setSearch }) => {
-//   const [isMenuOpen, setIsMenuOpen] = useState(false);
-//   const navigate = useNavigate();
-
-//   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
-//   return (
-//     <header className="header">
-//       <div className="logo-link">
-//         <Link to="/">
-//           <img src={Logo} alt="Logo Vinted" />
-//         </Link>
-//       </div>
-
-//       {/* Menu toggle (burger) */}
-//       <button className="menu-toggle" onClick={toggleMenu}>
-//         ☰
-//       </button>
-
-//       {/* Barre de recherche */}
-//       <div className={`searchbar-button-container ${isMenuOpen ? "open" : ""}`}>
-//         <div className="inputsearch-slider">
-//           <SearchBar search={search} setSearch={setSearch} />
-//         </div>
-//       </div>
-
-//       {/* Boutons connexion/publication */}
-//       <div className={`publish-login-btn-container ${isMenuOpen ? "open" : ""}`}>
-//         {token ? (
-//           <button
-//             onClick={() => {
-//               handleTokenAndId(null, null);
-//               navigate("/");
-//             }}
-//             style={{ backgroundColor: "#C2175B", color: "white" }}
-//           >
-//             Se déconnecter
-//           </button>
-//         ) : (
-//           <>
-//             <Link to="/signup">
-//               <button>S'inscrire</button>
-//             </Link>
-//             <Link to="/login">
-//               <button>Se connecter</button>
-//             </Link>
-//           </>
-//         )}
-//         <Link to={token ? "/publish" : "/login"}>
-//           <button style={{ backgroundColor: "#56bfc7", color: "white" }}>Vends tes articles</button>
-//         </Link>
-//       </div>
-//     </header>
-//   );
-// };
-
-// export default Header;

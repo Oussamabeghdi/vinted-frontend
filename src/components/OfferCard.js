@@ -4,7 +4,6 @@ import "../styles/components/OfferCard.css";
 
 const OfferCard = ({ offerInfos }) => {
   const account = useMemo(() => offerInfos?.owner?.account, [offerInfos]);
-  // console.log(offerInfos, "");
   return (
     <article className="card-wrapper">
       <div className="card-header">

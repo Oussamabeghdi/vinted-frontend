@@ -50,7 +50,6 @@ const Publish = ({ token }) => {
       });
 
       await axios.post(
-        // "http://localhost:3000/offer/publish",
         "https://vinted-backend-55n7.onrender.com/offer/publish",
 
         formData,

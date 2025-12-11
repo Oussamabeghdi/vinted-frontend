@@ -13,19 +13,12 @@ const Login = ({ handleTokenAndId }) => {
   const handleLogin = async (event) => {
     event.preventDefault();
     setErrorMessage("");
-    // navigate("/");
     try {
-      const response = await axios.post(
-        // "http://localhost:3000/user/login",
-        "https://vinted-backend-55n7.onrender.com/user/login",
-        {
-          email: email,
-          password: password,
-        }
-      );
-      // console.log(response.data);
+      const response = await axios.post("https://vinted-backend-55n7.onrender.com/user/login", {
+        email: email,
+        password: password,
+      });
       if (response.data.token) {
-        // Cookies.set("token-vinted", response.data.token, { expire: 14 });
         handleTokenAndId(response.data.token, response.data._id);
         navigate("/");
       }

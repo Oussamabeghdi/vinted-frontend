@@ -19,7 +19,6 @@ const CheckoutForm = ({ token, product_name, product_price }) => {
     try {
       setPaymentStatus(1);
       const cardElement = elements.getElement(CardElement);
-      // console.log("cardElement : " + cardElement);
 
       const stripeResponse = await stripe.createToken(cardElement, {
         name: userId,

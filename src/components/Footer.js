@@ -47,14 +47,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="app-google-store-container">
-          <div className="app-google-store">
-            {/* <button className="app-store-button" type="button">
-              App-store
-            </button>
-            <button className="google-play-button" type="button">
-              Google-play
-            </button> */}
-          </div>
+          <div className="app-google-store"></div>
         </div>
       </section>
     </footer>
